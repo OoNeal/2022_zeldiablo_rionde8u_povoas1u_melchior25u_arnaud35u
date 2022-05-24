@@ -1,0 +1,26 @@
+@startuml
+title Telecommande et Lampe
+
+'''classes
+class Labyrinthe{
+  + murs : boolean[][]
+  + getSuivant(x : int, y : int, action : String) : int[]
+  + Labyrinthe(nom : String)
+  + deplacerPerso(action : String)
+  + etreFini() : boolean
+  + getLengthY() : int
+  + getLength() : int
+  + getMur(x : int, y: int) : boolean
+}
+class Perso {
+  x : int
+  y : int
+  + Perso(x : int, y : int)
+  + etrePresent(dx : int, dy : int) : boolean
+  + getX() : int
+  + getY() : int
+}
+
+'''relations
+Labyrinthe "1" --> "1" Perso: + pj
+@enduml
