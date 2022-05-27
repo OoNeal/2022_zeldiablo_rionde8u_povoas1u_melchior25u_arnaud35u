@@ -8,7 +8,7 @@ actor "joueur" as j
 
 activate j #00FF00
 
-j -> m : "gauche"
+j -> m : "Q"
 activate m
 
 m -> l : deplacerPerso(String action)
