@@ -36,7 +36,7 @@ public class InventaireTest {
         Labyrinthe laby = new Labyrinthe("labySimple/labyObjet.txt");
 
         // methode testee
-        laby.pj.ramasser();
+        laby.ramasserObjet();
 
         // verification
         assertEquals(2, laby.objets.size(), "Il devrai y avoir 2 objets sur le labyrinthe");
@@ -53,7 +53,7 @@ public class InventaireTest {
         laby.deplacerPerso("Haut");
 
         // methode testee
-        laby.pj.ramasser();
+        laby.ramasserObjet();
 
         // verification
         assertEquals(1, laby.objets.size(), "Il devrai y avoir 1 objets sur le labyrinthe");
@@ -69,12 +69,12 @@ public class InventaireTest {
         // preparation des donnees
         Labyrinthe laby = new Labyrinthe("labySimple/labyObjet.txt");
         laby.deplacerPerso("Haut");
-        laby.pj.ramasser();
+        laby.ramasserObjet();
         laby.deplacerPerso("Haut");
         laby.deplacerPerso("Gauche");
 
         // methode testee
-        laby.pj.ramasser();
+        laby.ramasserObjet();
 
         // verification
         assertEquals(0, laby.objets.size(), "Il devrai y avoir 0 objets sur le labyrinthe");

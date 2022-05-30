@@ -28,10 +28,7 @@ public class Position {
         this.y = y;
     }
 
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Position position = (Position) o;
-        return x == position.x && y == position.y;
+    public boolean equals(Position p) {
+        return this.x == p.x && this.y == p.y;
     }
 }

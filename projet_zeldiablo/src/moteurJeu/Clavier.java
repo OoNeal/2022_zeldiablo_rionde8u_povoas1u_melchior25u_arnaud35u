@@ -78,7 +78,7 @@ public class Clavier {
 
             // si touche ramasser
             case E:
-                this.ramasser = true;
+                this.ramasser = false;
                 break;
 
         }

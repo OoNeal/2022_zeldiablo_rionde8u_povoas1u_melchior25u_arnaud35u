@@ -31,7 +31,7 @@ class Labyrinthe{
   + getLengthY() : int
   + getLength() : int
   + getMur(x : int, y: int) : boolean
-  + chercherObjet() : ObjetRamassable
+  + ramasserObjet()
 }
 
 
@@ -62,7 +62,6 @@ class Position {
 class Perso {
   + Perso(x : int, y : int)
   + etrePresent(dx : int, dy : int) : boolean
-  + ramasser() : void
   + getInventaire() : ArrayList<ObjetRamassable>
 }
 

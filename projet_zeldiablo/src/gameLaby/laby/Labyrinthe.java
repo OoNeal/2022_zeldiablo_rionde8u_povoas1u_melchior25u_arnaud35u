@@ -175,7 +175,17 @@ public class Labyrinthe {
         }
     }
 
-    public ObjetRamassable chercherObjet()
+    public void ramasserObjet(){
+        for (ObjetRamassable oR : this.objets) {
+            if (this.pj.equals(oR)) {
+                this.objets.remove(oR);
+                this.pj.getInventaire().add(oR);
+                break;
+            }
+        }
+    }
+
+
 
     /**
      * jamais fini

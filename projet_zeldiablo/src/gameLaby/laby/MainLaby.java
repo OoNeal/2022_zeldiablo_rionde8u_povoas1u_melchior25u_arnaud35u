@@ -12,10 +12,10 @@ public class MainLaby {
     public static void main(String[] args) throws IOException {
         int width = 500;
         int height = 350;
-        int pFPS = 5;
+        int pFPS = 10;
 
         // creation des objets
-        LabyJeu jeuLaby = new LabyJeu("labySimple/laby1.txt");
+        LabyJeu jeuLaby = new LabyJeu("labySimple/labyObjet.txt");
         LabyDessin dessinLaby = new LabyDessin();
 
         // parametrage du moteur de jeu
