@@ -1,0 +1,77 @@
+@startuml
+hide footbox
+
+participant "main:Main" as main
+participant "moteurJeu:MoteurJeu" as moteurJeu
+participant "laby: LabyJeu" as l
+participant "dessin:DessinJeu" as r #FF8888
+participant "jeu:Jeu" as game #FF8888
+participant "labyrinthe: Labyrinthe" as lab
+participant "pj:Perso" as p
+participant "controle:Clavier" as c
+actor "joueur" as j
+
+activate j #00FF00
+
+create game
+main-> game : new
+create r
+main-> r :new
+
+loop Timer
+j -> c : appuyerTouche("E")
+activate c
+c --> j
+deactivate c
+
+
+l -> game : update(duree,clavier)
+activate l
+activate game
+game --> l
+deactivate game
+
+l -> lab : chercherObjet()
+deactivate l
+activate lab
+loop while(objets[i].equals(this.pj)
+lab -> lab : i++ : o ObjetRamassable o
+end
+
+lab -> p : ramasserObjet(ObjetRamassable o)
+activate p
+p --> p : inventaire.add(o)
+p --> lab
+deactivate p
+deactivate lab
+
+
+j -> c : relacherTouche("E")
+activate c
+c --> j
+deactivate c
+
+
+moteurJeu -> game : update(duree, clavier)
+activate moteurJeu #0000FF
+activate game #0000FF
+
+moteurJeu <-- game
+deactivate game
+
+moteurJeu -> r : drawGame(g,canvas)
+activate r #0000FF
+
+moteurJeu <-- r
+deactivate r
+
+end
+
+main<-- moteurJeu
+deactivate moteurJeu
+deactivate c
+deactivate l
+deactivate m
+deactivate j
+
+@enduml
