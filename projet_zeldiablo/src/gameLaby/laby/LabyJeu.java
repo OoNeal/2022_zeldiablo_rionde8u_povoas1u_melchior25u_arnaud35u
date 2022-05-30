@@ -55,7 +55,5 @@ public class LabyJeu implements Jeu {
         return this.laby;
     }
 
-    public Perso getPerso() {
-        return this.laby.pj;
-    }
+
 }

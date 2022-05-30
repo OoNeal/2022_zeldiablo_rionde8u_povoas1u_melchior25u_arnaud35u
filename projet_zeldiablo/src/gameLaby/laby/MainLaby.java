@@ -12,7 +12,7 @@ public class MainLaby {
     public static void main(String[] args) throws IOException {
         int width = 500;
         int height = 350;
-        int pFPS = 20;
+        int pFPS = 5;
 
         // creation des objets
         LabyJeu jeuLaby = new LabyJeu("labySimple/laby1.txt");
