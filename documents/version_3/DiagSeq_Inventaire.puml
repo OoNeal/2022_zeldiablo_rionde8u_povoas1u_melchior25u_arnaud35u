@@ -31,18 +31,13 @@ activate game
 game --> l
 deactivate game
 
-l -> lab : chercherObjet()
+l -> lab : ramasserObjet()
 deactivate l
 activate lab
-loop while(objets[i].equals(this.pj)
-lab -> lab : i++ : o ObjetRamassable o
+loop for(ObjetRamassable oR : this.objets)
+
 end
 
-lab -> p : ramasserObjet(ObjetRamassable o)
-activate p
-p --> p : inventaire.add(o)
-p --> lab
-deactivate p
 deactivate lab
 
 
