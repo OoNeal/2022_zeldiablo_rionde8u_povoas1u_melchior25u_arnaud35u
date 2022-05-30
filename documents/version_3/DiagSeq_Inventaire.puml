@@ -7,6 +7,8 @@ participant "laby: LabyJeu" as l
 participant "dessin:DessinJeu" as r #FF8888
 participant "jeu:Jeu" as game #FF8888
 participant "labyrinthe: Labyrinthe" as lab
+participant "objets:Arraylist<ObjetRamassable>" as o
+participant "inventaire:Arraylist<ObjetRamassable>" as i
 participant "pj:Perso" as p
 participant "controle:Clavier" as c
 actor "joueur" as j
@@ -32,13 +34,23 @@ game --> l
 deactivate game
 
 l -> lab : ramasserObjet()
-deactivate l
 activate lab
 loop for(ObjetRamassable oR : this.objets)
-
-end
-
+group if (this.pj.equals(oR))
+lab -> o : removeObjet(oR)
+activate o #ffc320
+lab <-- o
+deactivate o
+lab -> i : p.getInventaire().add(oR)
+activate i #ffc320
+lab <-- i
+deactivate i
+end group
+end loop
+l <-- lab
+deactivate l
 deactivate lab
+
 
 
 j -> c : relacherTouche("E")
@@ -66,7 +78,6 @@ main<-- moteurJeu
 deactivate moteurJeu
 deactivate c
 deactivate l
-deactivate m
 deactivate j
 
 @enduml
