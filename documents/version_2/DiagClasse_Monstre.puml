@@ -1,0 +1,103 @@
+@startuml
+title Inventaire et Perso
+
+'''classe'''
+
+
+package moteurJeu {
+
+interface Jeu{
++ init()
++ update(seconds: double, clavier: Clavier)
++ etreFini(): boolean
+}
+
+
+interface DessinJeu {
++ dessinerJeu(jeu: Jeu, canvas: Canvas)
+}
+}
+
+
+package gameLaby {
+
+
+class Labyrinthe{
+  + murs : boolean[][]
+  + getSuivant(x : int, y : int, action : String) : int[]
+  + Labyrinthe(nom : String)
+  + deplacerPerso(action : String)
+  + etreFini() : boolean
+  + getLengthY() : int
+  + getLength() : int
+  + getMur(x : int, y: int) : boolean
+  + ramasserObjet()
+}
+
+
+class ObjetRamassable {
+    + equipe : boolean;
+    + ObjetRamassable(int x, int y)
+}
+
+class Potion{
+    + Potion(int x, int y)
+    + toString() : String
+}
+
+class Epee{
+    + Epee(int x, int y)
+    + toString() : String
+}
+
+class Position {
+    - x : int
+    - y : int
+    + Position(int x, int y);
+    + getX() ; int;
+    + getY() : int;
+    + equals(Position p) : boolean;
+}
+
+class Monstre {
+  + Monstre(x : int, y : int)
+}
+
+
+class Perso {
+  + Perso(x : int, y : int)
+  + etrePresent(dx : int, dy : int) : boolean
+  + getInventaire() : ArrayList<ObjetRamassable>
+}
+
+class LabyJeu{
++ init()
++ LabyJeu(nom : String)
++ update(seconds: double, clavier: Clavier)
++ etreFini(): boolean
++ getLaby(): Labyrinthe
+}
+
+class LabyDessin{
++ dessinerJeu(jeu: Jeu, canvas: Canvas)
+}
+}
+
+
+LabyJeu "1" --> "1" Labyrinthe : -laby
+DessinJeu <|.. LabyDessin
+Jeu <|.. LabyJeu
+Labyrinthe "1" --> "1" Perso: + pj
+LabyJeu <. LabyDessin:uses
+
+ObjetRamassable "*" --> "0..1" Perso: -inventaire : ArrayList<ObjetRamassable>
+ObjetRamassable "*" --> "0..1" Labyrinthe: -objets : ArrayList<ObjetRamassable>
+ObjetRamassable  <|-- "Potion"
+ObjetRamassable  <|-- "Epee"
+Position <|--  Perso
+Position <|--  Monstre
+Position <|--  ObjetRamassable
+
+
+
+@enduml
