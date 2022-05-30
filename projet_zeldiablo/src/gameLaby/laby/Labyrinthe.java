@@ -175,6 +175,7 @@ public class Labyrinthe {
         }
     }
 
+    public ObjetRamassable chercherObjet()
 
     /**
      * jamais fini

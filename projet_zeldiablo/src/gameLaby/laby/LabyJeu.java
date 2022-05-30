@@ -37,6 +37,10 @@ public class LabyJeu implements Jeu {
             this.laby.deplacerPerso("Haut");
         }
 
+        if (clavier.ramasser) {
+            this.laby.pj.ramasser();
+        }
+
     }
 
 
