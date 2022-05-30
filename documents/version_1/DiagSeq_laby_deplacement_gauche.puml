@@ -46,6 +46,7 @@ deactivate lab
 j -> c : relacherTouche("Q")
 activate c
 c --> j
+deactivate c
 
 
 moteurJeu -> game : update(duree, clavier)
@@ -65,9 +66,6 @@ end
 
 main<-- moteurJeu
 deactivate moteurJeu
-deactivate c
-deactivate l
-deactivate m
 deactivate j
 
 @enduml
