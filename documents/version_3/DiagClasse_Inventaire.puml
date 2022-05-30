@@ -31,28 +31,28 @@ class Labyrinthe{
   + getLengthY() : int
   + getLength() : int
   + getMur(x : int, y: int) : boolean
+  + chercherObjet() : ObjetRamassable
 }
 
 
 class ObjetRamassable {
-
     + equipe : boolean;
     + ObjetRamassable(int x, int y)
-    + toString() : String
 }
 
 class Potion{
     + Potion(int x, int y)
+    + toString() : String
 }
 
 class Epee{
     + Epee(int x, int y)
+    + toString() : String
 }
 
 class Position {
     int x;
     int y;
-
     + Position(int x, int y);
     + getX() ; int;
     + getY() : int;
@@ -62,9 +62,7 @@ class Position {
 class Perso {
   + Perso(x : int, y : int)
   + etrePresent(dx : int, dy : int) : boolean
-  + getX() : int
-  + getY() : int
-  + ramasser(objet : ObjetRamassable) : void
+  + ramasser() : void
   + getInventaire() : ArrayList<ObjetRamassable>
 }
 
