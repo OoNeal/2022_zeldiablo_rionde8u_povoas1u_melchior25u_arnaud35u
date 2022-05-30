@@ -3,6 +3,7 @@ package gameLaby.laby;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * classe labyrinthe. represente un labyrinthe avec
@@ -17,6 +18,9 @@ public class Labyrinthe {
     public static final char MUR = 'X';
     public static final char PJ = 'P';
     public static final char VIDE = '.';
+    public static final char POTION = 'B';
+    public static final char EPEE = 'E';
+
 
     /**
      * constantes actions possibles
@@ -35,6 +39,11 @@ public class Labyrinthe {
      * les murs du labyrinthe
      */
     public boolean[][] murs;
+
+    /**
+     * Les objets presents sur le labyrinthe
+     */
+    public ArrayList<ObjetRamassable> objets;
 
     /**
      * retourne la case suivante selon une actions
@@ -90,6 +99,7 @@ public class Labyrinthe {
         // creation labyrinthe vide
         this.murs = new boolean[nbColonnes][nbLignes];
         this.pj = null;
+        this.objets = new ArrayList<ObjetRamassable>();
 
         // lecture des cases
         String ligne = bfRead.readLine();
@@ -115,6 +125,18 @@ public class Labyrinthe {
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute PJ
                         this.pj = new Perso(colonne, numeroLigne);
+                        break;
+                    case EPEE:
+                        // pas de mur
+                        this.murs[colonne][numeroLigne] = false;
+                        // ajoute Epee
+                        this.objets.add(new Epee(colonne, numeroLigne));
+                        break;
+                    case POTION:
+                        // pas de mur
+                        this.murs[colonne][numeroLigne] = false;
+                        // ajoute Potion
+                        this.objets.add(new Potion(colonne, numeroLigne));
                         break;
 
                     default:
