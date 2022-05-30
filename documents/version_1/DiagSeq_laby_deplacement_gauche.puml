@@ -41,6 +41,7 @@ lab -> p : this.pj.x = int[0]
 activate p
 lab -> p : this.pj.y = int[1]
 deactivate p
+l <-- lab
 deactivate lab
 
 j -> c : relacherTouche("Q")
