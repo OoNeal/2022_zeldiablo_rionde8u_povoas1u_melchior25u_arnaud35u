@@ -56,6 +56,13 @@ public class LabyDessin implements DessinJeu {
         double py = p.getY();
         gc.fillOval(50*px, 50*py, 50, 50);
 
+        // dessin monstre
+        gc.setFill(Color.VIOLET);
+        Monstre m = labyJeu.getLaby().monster;
+        double mx = m.getX();
+        double my = m.getY();
+        gc.fillOval(50*mx, 50*my, 50, 50);
+
     }
 
 }

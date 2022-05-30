@@ -20,6 +20,7 @@ public class Labyrinthe {
     public static final char VIDE = '.';
     public static final char POTION = 'B';
     public static final char EPEE = 'E';
+    public static final char MONSTRE = 'M';
 
 
     /**
@@ -34,6 +35,11 @@ public class Labyrinthe {
      * attribut du personnage
      */
     public Perso pj;
+
+    /**
+     * attribut du monstre
+     */
+    public Monstre monster;
 
     /**
      * les murs du labyrinthe
@@ -100,6 +106,7 @@ public class Labyrinthe {
         this.murs = new boolean[nbColonnes][nbLignes];
         this.pj = null;
         this.objets = new ArrayList<ObjetRamassable>();
+        this.monster = null;
 
         // lecture des cases
         String ligne = bfRead.readLine();
@@ -138,6 +145,12 @@ public class Labyrinthe {
                         // ajoute Potion
                         this.objets.add(new Potion(colonne, numeroLigne));
                         break;
+                    case MONSTRE:
+                        // pas de mur
+                        this.murs[colonne][numeroLigne] = false;
+                        // ajoute Monstre
+                        this.monster = new Monstre(colonne, numeroLigne);
+                        break;
 
                     default:
                         throw new Error("caractere inconnu " + c);
@@ -169,9 +182,11 @@ public class Labyrinthe {
 
         // si c'est pas un mur, on effectue le deplacement
         if (!this.murs[suivante[0]][suivante[1]]) {
-            // on met a jour personnage
-            this.pj.setX(suivante[0]);
-            this.pj.setY(suivante[1]);
+            if (!monster.equals(new Position(suivante[0], suivante[1]))) {
+                // on met a jour personnage
+                this.pj.setX(suivante[0]);
+                this.pj.setY(suivante[1]);
+            }
         }
     }
 

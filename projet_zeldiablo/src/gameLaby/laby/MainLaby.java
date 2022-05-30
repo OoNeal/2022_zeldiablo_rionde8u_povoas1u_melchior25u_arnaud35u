@@ -15,7 +15,7 @@ public class MainLaby {
         int pFPS = 10;
 
         // creation des objets
-        LabyJeu jeuLaby = new LabyJeu("labySimple/labyObjet.txt");
+        LabyJeu jeuLaby = new LabyJeu("labySimple/labyMonstre.txt");
         LabyDessin dessinLaby = new LabyDessin();
 
         // parametrage du moteur de jeu
