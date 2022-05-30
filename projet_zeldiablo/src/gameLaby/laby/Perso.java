@@ -33,7 +33,11 @@ public class Perso extends Position{
         return (super.getX() == dx && super.getY() == dy);
     }
 
-    public void ramasser(ObjetRamassable objet){
-        if (super.getX() == objet.getX() && super.getY() == objet.getY())
+    public void ramasser(){
+
+    }
+
+    public ArrayList<ObjetRamassable> getInventaire() {
+        return inventaire;
     }
 }
