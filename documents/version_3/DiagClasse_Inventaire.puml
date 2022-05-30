@@ -2,6 +2,38 @@
 title Inventaire et Perso
 
 '''classe'''
+
+
+package moteurJeu {
+
+interface Jeu{
++ init()
++ update(seconds: double, clavier: Clavier)
++ etreFini(): boolean
+}
+
+
+interface DessinJeu {
++ dessinerJeu(jeu: Jeu, canvas: Canvas)
+}
+}
+
+
+package gameLaby {
+
+
+class Labyrinthe{
+  + murs : boolean[][]
+  + getSuivant(x : int, y : int, action : String) : int[]
+  + Labyrinthe(nom : String)
+  + deplacerPerso(action : String)
+  + etreFini() : boolean
+  + getLengthY() : int
+  + getLength() : int
+  + getMur(x : int, y: int) : boolean
+}
+
+
 class ObjetRamassable {
 
     + equipe : boolean;
@@ -28,7 +60,6 @@ class Position {
 }
 
 class Perso {
-
   + Perso(x : int, y : int)
   + etrePresent(dx : int, dy : int) : boolean
   + getX() : int
@@ -37,8 +68,28 @@ class Perso {
   + getInventaire() : ArrayList<ObjetRamassable>
 }
 
-'''relations'''
-ObjetRamassable "*" --> "0..1" Perso: inventaire : ArrayList<ObjetRamassable>
+class LabyJeu{
++ init()
++ LabyJeu(nom : String)
++ update(seconds: double, clavier: Clavier)
++ etreFini(): boolean
++ getLaby(): Labyrinthe
+}
+
+class LabyDessin{
++ dessinerJeu(jeu: Jeu, canvas: Canvas)
+}
+}
+
+
+LabyJeu "1" --> "1" Labyrinthe : -laby
+DessinJeu <|.. LabyDessin
+Jeu <|.. LabyJeu
+Labyrinthe "1" --> "1" Perso: + pj
+LabyJeu <. LabyDessin:uses
+
+ObjetRamassable "*" --> "0..1" Perso: -inventaire : ArrayList<ObjetRamassable>
+ObjetRamassable "*" --> "0..1" Labyrinthe: -objets : ArrayList<ObjetRamassable>
 ObjetRamassable  <|-- "Potion"
 ObjetRamassable  <|-- "Epee"
 Position <|--  Perso
