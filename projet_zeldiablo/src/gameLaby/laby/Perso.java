@@ -1,15 +1,14 @@
 package gameLaby.laby;
 
 
+import java.util.ArrayList;
+
 /**
  * gere un personnage situe en x,y
  */
-public class Perso {
+public class Perso extends Position{
 
-    /**
-     * position du personnage
-     */
-    int x, y;
+    private ArrayList<ObjetRamassable> inventaire;
 
     /**
      * constructeur
@@ -18,8 +17,8 @@ public class Perso {
      * @param dy position selon y
      */
     public Perso(int dx, int dy) {
-        this.x = dx;
-        this.y = dy;
+        super(dx, dy);
+        inventaire = new ArrayList<ObjetRamassable>();
     }
 
     /**
@@ -31,26 +30,10 @@ public class Perso {
      */
     public boolean etrePresent(int dx, int dy) {
 
-        return (this.x == dx && this.y == dy);
+        return (super.getX() == dx && super.getY() == dy);
     }
 
-    // ############################################
-    // GETTER
-    // ############################################
-
-    /**
-     * @return position x du personnage
-     */
-    public int getX() {
-        // getter
-        return this.x;
-    }
-
-    /**
-     * @return position y du personnage
-     */
-    public int getY() {
-        //getter
-        return this.y;
+    public void ramasser(ObjetRamassable objet){
+        if (super.getX() == objet.getX() && super.getY() == objet.getY())
     }
 }
