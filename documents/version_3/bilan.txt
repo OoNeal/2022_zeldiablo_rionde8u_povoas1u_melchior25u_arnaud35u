@@ -1,2 +1,2 @@
-L'itération n'est pas terminée mais il reste peu de chose à faire.
-Nous allons la terminer le lundi 30 mai dans l'apres-midi.
+Nous avons bien reussi à implementer les fonctionnalites choisies.
+Tous les tests fonctionnent comme prevus.
