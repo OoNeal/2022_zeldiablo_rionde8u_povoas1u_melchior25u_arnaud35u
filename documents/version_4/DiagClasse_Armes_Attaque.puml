@@ -37,8 +37,8 @@ class Labyrinthe{
 
 
 class ObjetRamassable {
-    + equipe : boolean;
     + ObjetRamassable(x : int, y : int)
+    + getDegats() : int
 }
 
 class Potion{
@@ -63,12 +63,12 @@ class Epee{
 }
 
 class Position {
-    x : int;
-    y : int;
-    + Position(int x, int y);
-    + getX() ; int;
-    + getY() : int;
-    + equals(Position p) : boolean;
+    x : int
+    y : int
+    + Position(int x, int y)
+    + getX() ; int
+    + getY() : int
+    + equals(Position p) : boolean
 }
 
 class Perso {
@@ -82,6 +82,8 @@ class Entite {
     - attaque : int
     + Entite(x : int, y : int, v : int, atq : int)
     + subirDegats(degats : int)
+    + getVie() : int
+    + getDegats() : int
 }
 
 class Monstre {
@@ -108,13 +110,14 @@ Jeu <|.. LabyJeu
 Labyrinthe "1" --> "1" Perso: + pj
 LabyJeu <. LabyDessin:uses
 
+
 ObjetRamassable "*" <-- "0..1" Perso: -inventaire : ArrayList<ObjetRamassable>
 ObjetRamassable "*" <-- "0..1" Labyrinthe: -objets : ArrayList<ObjetRamassable>
 ObjetRamassable  <|-- "Potion"
 ObjetRamassable  <|-- "Arme"
 Arme <|-- "Epee"
 Arme <|-- "Dague"
-
+Monstre "*" <-- "0..1" Labyrinthe: -monstres : ArrayList<Monstre>
 Position <|--  ObjetRamassable
 Position <|-- Entite
 Entite <|-- Monstre
