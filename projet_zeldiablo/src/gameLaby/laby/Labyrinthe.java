@@ -21,6 +21,7 @@ public class Labyrinthe {
     public static final char POTION = 'B';
     public static final char EPEE = 'E';
     public static final char MONSTRE = 'M';
+    public static final char DAGUE = 'D';
 
 
     /**
@@ -151,6 +152,12 @@ public class Labyrinthe {
                         // ajoute Monstre
                         this.monster = new Monstre(colonne, numeroLigne);
                         break;
+                    case DAGUE:
+                        // pas de mur
+                        this.murs[colonne][numeroLigne] = false;
+                        // ajoute Dague
+                        this.objets.add(new Dague(colonne, numeroLigne));
+                        break;
 
                     default:
                         throw new Error("caractere inconnu " + c);
@@ -242,5 +249,13 @@ public class Labyrinthe {
     public boolean getMur(int x, int y) {
         // utilise le tableau de boolean
         return this.murs[x][y];
+    }
+
+
+    public void attaquerMonstre()
+    {
+
+        this.monster.subirDegats(this.pj.getMeilleureDegats());
+
     }
 }

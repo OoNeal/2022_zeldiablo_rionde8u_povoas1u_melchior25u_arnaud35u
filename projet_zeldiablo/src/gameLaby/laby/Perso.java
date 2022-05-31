@@ -6,18 +6,18 @@ import java.util.ArrayList;
 /**
  * gere un personnage situe en x,y
  */
-public class Perso extends Position{
+public class Perso extends Entite {
 
     private ArrayList<ObjetRamassable> inventaire;
 
     /**
      * constructeur
      *
-     * @param dx position selon x
-     * @param dy position selon y
+     * @param x position selon x
+     * @param y position selon y
      */
-    public Perso(int dx, int dy) {
-        super(dx, dy);
+    public Perso(int x, int y) {
+        super(x, y, 10, 3);
         inventaire = new ArrayList<ObjetRamassable>();
     }
 
@@ -33,7 +33,16 @@ public class Perso extends Position{
         return (super.getX() == dx && super.getY() == dy);
     }
 
+    public int getMeilleureDegats() {
+        int meilleureDegats = inventaire.get(0).getDegats();
+        for (ObjetRamassable arme : inventaire) {
+            if (meilleureDegats < arme.getDegats()) {
+                meilleureDegats = arme.getDegats();
+            }
 
+        }
+        return meilleureDegats;
+    }
 
     public ArrayList<ObjetRamassable> getInventaire() {
         return inventaire;
