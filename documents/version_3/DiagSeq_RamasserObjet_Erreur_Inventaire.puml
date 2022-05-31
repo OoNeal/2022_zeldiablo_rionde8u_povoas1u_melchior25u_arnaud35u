@@ -1,0 +1,46 @@
+@startuml
+hide footbox
+
+participant "main:Main" as main
+participant "laby: LabyJeu" as l
+participant "dessin:DessinJeu" as r #FF8888
+participant "jeu:Jeu" as game #FF8888
+participant "labyrinthe: Labyrinthe" as lab
+participant "objets:Arraylist<ObjetRamassable>" as o
+participant "inventaire:Arraylist<ObjetRamassable>" as i
+create game
+main-> game : new
+create r
+main-> r :new
+
+loop Timer
+
+
+l -> game : update(duree,clavier)
+activate l
+activate game
+
+l -> lab : ramasserObjet()
+activate lab
+loop for(ObjetRamassable oR : this.objets)
+group if (this.pj.equals(oR))
+lab -> lab : false
+end group
+end loop
+game <-- lab
+deactivate lab
+
+game --> l
+deactivate game
+deactivate l
+
+
+
+
+
+
+end
+
+deactivate l
+
+@enduml
