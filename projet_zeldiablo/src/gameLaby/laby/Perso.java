@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * gere un personnage situe en x,y
  */
-public class Perso extends Position{
+public class Perso extends Entite {
 
     private ArrayList<ObjetRamassable> inventaire;
 
@@ -16,8 +16,8 @@ public class Perso extends Position{
      * @param dx position selon x
      * @param dy position selon y
      */
-    public Perso(int dx, int dy) {
-        super(dx, dy);
+    public Perso(int dx, int dy, int v, int atq) {
+        super(dx, dy, v, atq);
         inventaire = new ArrayList<ObjetRamassable>();
     }
 

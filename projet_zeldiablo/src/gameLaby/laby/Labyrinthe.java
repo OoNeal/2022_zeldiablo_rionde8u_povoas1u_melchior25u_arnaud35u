@@ -21,6 +21,7 @@ public class Labyrinthe {
     public static final char POTION = 'B';
     public static final char EPEE = 'E';
     public static final char MONSTRE = 'M';
+    public static final char DAGUE = 'D';
 
 
     /**
@@ -131,7 +132,7 @@ public class Labyrinthe {
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute PJ
-                        this.pj = new Perso(colonne, numeroLigne);
+                        this.pj = new Perso(colonne, numeroLigne, 10, 1);
                         break;
                     case EPEE:
                         // pas de mur
@@ -149,7 +150,13 @@ public class Labyrinthe {
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute Monstre
-                        this.monster = new Monstre(colonne, numeroLigne);
+                        this.monster = new Monstre(colonne, numeroLigne, 10, 1);
+                        break;
+                    case DAGUE:
+                        // pas de mur
+                        this.murs[colonne][numeroLigne] = false;
+                        // ajoute Dague
+                        this.objets.add(new Dague(colonne, numeroLigne));
                         break;
 
                     default:
