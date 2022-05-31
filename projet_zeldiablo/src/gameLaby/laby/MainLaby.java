@@ -10,13 +10,14 @@ import java.io.IOException;
 public class MainLaby {
 
     public static void main(String[] args) throws IOException {
-        int width = 500;
-        int height = 350;
-        int pFPS = 10;
+        int pFPS = 60;
 
         // creation des objets
         LabyJeu jeuLaby = new LabyJeu("labySimple/labyMonstre.txt");
         LabyDessin dessinLaby = new LabyDessin();
+
+        int width = 50*jeuLaby.getLaby().getLength();
+        int height = 50*jeuLaby.getLaby().getLengthY();
 
         // parametrage du moteur de jeu
         MoteurJeu.setTaille(width,height);

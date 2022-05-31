@@ -1,5 +1,5 @@
 @startuml
-title Inventaire et Perso
+title Monstre et Perso
 
 '''classe'''
 
@@ -35,20 +35,9 @@ class Labyrinthe{
 }
 
 
-class ObjetRamassable {
-    + equipe : boolean;
-    + ObjetRamassable(int x, int y)
-}
 
-class Potion{
-    + Potion(int x, int y)
-    + toString() : String
-}
 
-class Epee{
-    + Epee(int x, int y)
-    + toString() : String
-}
+
 
 class Position {
     - x : int
@@ -90,13 +79,10 @@ Jeu <|.. LabyJeu
 Labyrinthe "1" --> "1" Perso: + pj
 LabyJeu <. LabyDessin:uses
 
-ObjetRamassable "*" --> "0..1" Perso: -inventaire : ArrayList<ObjetRamassable>
-ObjetRamassable "*" --> "0..1" Labyrinthe: -objets : ArrayList<ObjetRamassable>
-ObjetRamassable  <|-- "Potion"
-ObjetRamassable  <|-- "Epee"
+
 Position <|--  Perso
 Position <|--  Monstre
-Position <|--  ObjetRamassable
+
 
 
 

@@ -51,8 +51,8 @@ class Epee{
 }
 
 class Position {
-    int x;
-    int y;
+    x : int;
+    y : int;
     + Position(int x, int y);
     + getX() ; int;
     + getY() : int;
@@ -63,6 +63,10 @@ class Perso {
   + Perso(x : int, y : int)
   + etrePresent(dx : int, dy : int) : boolean
   + getInventaire() : ArrayList<ObjetRamassable>
+}
+
+class Monstre {
+  + Monstre(x : int, y : int)
 }
 
 class LabyJeu{
@@ -85,12 +89,13 @@ Jeu <|.. LabyJeu
 Labyrinthe "1" --> "1" Perso: + pj
 LabyJeu <. LabyDessin:uses
 
-ObjetRamassable "*" --> "0..1" Perso: -inventaire : ArrayList<ObjetRamassable>
-ObjetRamassable "*" --> "0..1" Labyrinthe: -objets : ArrayList<ObjetRamassable>
+ObjetRamassable "*" <-- "0..1" Perso: -inventaire : ArrayList<ObjetRamassable>
+ObjetRamassable "*" <-- "0..1" Labyrinthe: -objets : ArrayList<ObjetRamassable>
 ObjetRamassable  <|-- "Potion"
 ObjetRamassable  <|-- "Epee"
 Position <|--  Perso
 Position <|--  ObjetRamassable
+Position <|-- Monstre
 
 
 
