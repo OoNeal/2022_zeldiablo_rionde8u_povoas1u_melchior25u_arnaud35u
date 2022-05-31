@@ -132,7 +132,7 @@ public class Labyrinthe {
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute PJ
-                        this.pj = new Perso(colonne, numeroLigne, 10, 1);
+                        this.pj = new Perso(colonne, numeroLigne);
                         break;
                     case EPEE:
                         // pas de mur
@@ -150,7 +150,7 @@ public class Labyrinthe {
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute Monstre
-                        this.monster = new Monstre(colonne, numeroLigne, 10, 1);
+                        this.monster = new Monstre(colonne, numeroLigne);
                         break;
                     case DAGUE:
                         // pas de mur
@@ -249,5 +249,13 @@ public class Labyrinthe {
     public boolean getMur(int x, int y) {
         // utilise le tableau de boolean
         return this.murs[x][y];
+    }
+
+
+    public void attaquerMonstre()
+    {
+
+        this.monster.subirDegats(this.pj.getMeilleureDegats());
+
     }
 }

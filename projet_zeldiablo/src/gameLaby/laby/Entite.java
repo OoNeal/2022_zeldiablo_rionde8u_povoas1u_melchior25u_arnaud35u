@@ -11,5 +11,9 @@ public class Entite extends Position{
         this.attaque = atq;
     }
 
+    public void subirDegats(int dgts){
+        this.vie -= dgts;
+    }
+
 
 }

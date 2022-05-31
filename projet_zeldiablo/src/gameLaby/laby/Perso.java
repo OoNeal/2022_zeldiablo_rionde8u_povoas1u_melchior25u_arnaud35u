@@ -13,11 +13,11 @@ public class Perso extends Entite {
     /**
      * constructeur
      *
-     * @param dx position selon x
-     * @param dy position selon y
+     * @param x position selon x
+     * @param y position selon y
      */
-    public Perso(int dx, int dy, int v, int atq) {
-        super(dx, dy, v, atq);
+    public Perso(int x, int y) {
+        super(x, y, 10, 3);
         inventaire = new ArrayList<ObjetRamassable>();
     }
 
@@ -33,7 +33,16 @@ public class Perso extends Entite {
         return (super.getX() == dx && super.getY() == dy);
     }
 
+    public int getMeilleureDegats() {
+        int meilleureDegats = inventaire.get(0).getDegats();
+        for (ObjetRamassable arme : inventaire) {
+            if (meilleureDegats < arme.getDegats()) {
+                meilleureDegats = arme.getDegats();
+            }
 
+        }
+        return meilleureDegats;
+    }
 
     public ArrayList<ObjetRamassable> getInventaire() {
         return inventaire;
