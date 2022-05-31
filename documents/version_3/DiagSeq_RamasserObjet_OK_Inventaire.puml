@@ -2,36 +2,23 @@
 hide footbox
 
 participant "main:Main" as main
-participant "moteurJeu:MoteurJeu" as moteurJeu
 participant "laby: LabyJeu" as l
 participant "dessin:DessinJeu" as r #FF8888
 participant "jeu:Jeu" as game #FF8888
 participant "labyrinthe: Labyrinthe" as lab
 participant "objets:Arraylist<ObjetRamassable>" as o
 participant "inventaire:Arraylist<ObjetRamassable>" as i
-participant "pj:Perso" as p
-participant "controle:Clavier" as c
-actor "joueur" as j
-
-activate j #00FF00
-
 create game
 main-> game : new
 create r
 main-> r :new
 
 loop Timer
-j -> c : appuyerTouche("E")
-activate c
-c --> j
-deactivate c
 
 
 l -> game : update(duree,clavier)
 activate l
 activate game
-game --> l
-deactivate game
 
 l -> lab : ramasserObjet()
 activate lab
@@ -47,37 +34,20 @@ lab <-- i
 deactivate i
 end group
 end loop
-l <-- lab
-deactivate l
+game <-- lab
 deactivate lab
 
-
-
-j -> c : relacherTouche("E")
-activate c
-c --> j
-deactivate c
-
-
-moteurJeu -> game : update(duree, clavier)
-activate moteurJeu #0000FF
-activate game #0000FF
-
-moteurJeu <-- game
+game --> l
 deactivate game
+deactivate l
 
-moteurJeu -> r : drawGame(g,canvas)
-activate r #0000FF
 
-moteurJeu <-- r
-deactivate r
+
+
+
 
 end
 
-main<-- moteurJeu
-deactivate moteurJeu
-deactivate c
 deactivate l
-deactivate j
 
 @enduml
