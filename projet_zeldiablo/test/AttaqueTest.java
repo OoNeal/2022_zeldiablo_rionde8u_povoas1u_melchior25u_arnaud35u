@@ -18,9 +18,9 @@ public class AttaqueTest {
 
         // verification
 
-        assertEquals(2, laby.monstres.get(0).getX());
-        assertEquals(4, laby.monstres.get(0).getY());
-        assertEquals(10, laby.monstres.get(0).getVie(), "Le monstre devrait avoir 10 pv");
+        assertEquals(2, laby.monstres.get(1).getX());
+        assertEquals(4, laby.monstres.get(1).getY());
+        assertEquals(10, laby.monstres.get(1).getVie(), "Le monstre devrait avoir 10 pv");
 
     }
 
@@ -39,7 +39,7 @@ public class AttaqueTest {
         laby.attaquerMonstre();
 
         // verification
-        assertEquals(7, laby.monstres.get(0).getVie(), "Le monstre devrait avoir 7 pv");
+        assertEquals(7, laby.monstres.get(1).getVie(), "Le monstre devrait avoir 7 pv");
 
     }
 
@@ -59,7 +59,7 @@ public class AttaqueTest {
         laby.attaquerMonstre();
 
         // verification
-        assertEquals(5, laby.monstres.get(0).getVie(), "Le monstre devrait avoir 5 pv");
+        assertEquals(5, laby.monstres.get(1).getVie(), "Le monstre devrait avoir 5 pv");
 
     }
 
@@ -79,7 +79,7 @@ public class AttaqueTest {
         laby.attaquerMonstre();
 
         // verification
-        assertEquals(4, laby.monstres.get(0).getVie(), "Le monstre devrait avoir 4 pv");
+        assertEquals(4, laby.monstres.get(1).getVie(), "Le monstre devrait avoir 4 pv");
 
     }
 
@@ -100,7 +100,7 @@ public class AttaqueTest {
         laby.attaquerMonstre();
 
         // verification
-        assertEquals(4, laby.monstres.get(0).getVie(), "Le monstre devrait avoir 4 pv");
+        assertEquals(4, laby.monstres.get(1).getVie(), "Le monstre devrait avoir 4 pv");
 
     }
 
@@ -139,7 +139,7 @@ public class AttaqueTest {
         laby.attaquerMonstre();
 
         // verification
-        assertEquals(10, laby.monstres.get(0).getVie(), "Le monstre devrait avoir 10 pv");
+        assertEquals(10, laby.monstres.get(1).getVie(), "Le monstre devrait avoir 10 pv");
 
     }
 
