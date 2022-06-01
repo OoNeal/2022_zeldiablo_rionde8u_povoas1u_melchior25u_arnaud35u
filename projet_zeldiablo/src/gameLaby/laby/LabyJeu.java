@@ -41,6 +41,10 @@ public class LabyJeu implements Jeu {
             this.laby.ramasserObjet();
         }
 
+        if (clavier.attaquer) {
+            this.laby.attaquerMonstre();
+        }
+
         // affichage console (facultatif)
         for (ObjetRamassable oR : this.laby.pj.getInventaire()) {
             System.out.println(oR);
