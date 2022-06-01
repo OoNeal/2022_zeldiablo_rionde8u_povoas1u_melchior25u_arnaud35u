@@ -189,14 +189,21 @@ public class Labyrinthe {
 
         // si c'est pas un mur, on effectue le deplacement
         if (!this.murs[suivante[0]][suivante[1]]) {
-            if (this.monstres.size() > 0) {
+            if (!this.monstres.isEmpty()) {
+                boolean bouge = true;
                 for (Monstre monster : this.monstres) {
-                    if (!monster.equals(new Position(suivante[0], suivante[1]))) {
-                        // on met a jour personnage
-                        this.pj.setX(suivante[0]);
-                        this.pj.setY(suivante[1]);
+                    if (monster.equals(new Position(suivante[0], suivante[1]))) {
+                        bouge = false;
+                        break;
                     }
                 }
+
+                if (bouge) {
+                    // on met a jour personnage
+                    this.pj.setX(suivante[0]);
+                    this.pj.setY(suivante[1]);
+                }
+
             } else {
                 // on met a jour personnage
                 this.pj.setX(suivante[0]);
