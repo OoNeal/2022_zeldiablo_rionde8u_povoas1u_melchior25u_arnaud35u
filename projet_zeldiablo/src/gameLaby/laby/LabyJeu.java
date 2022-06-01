@@ -8,6 +8,7 @@ import java.io.IOException;
 public class LabyJeu implements Jeu {
 
     private final Labyrinthe laby;
+    private boolean pretAttaquer = true;
 
     public LabyJeu(String nom) throws IOException {
         this.laby = new Labyrinthe(nom);
@@ -19,7 +20,6 @@ public class LabyJeu implements Jeu {
      * met a jour l'etat du jeu
      */
     public void update(double secondes, Clavier clavier) {
-
         // deplace le perso en fonction des touches
         if (clavier.droite) {
             this.laby.deplacerPerso("Droite");
@@ -41,9 +41,10 @@ public class LabyJeu implements Jeu {
             this.laby.ramasserObjet();
         }
 
-        if (clavier.attaquer) {
+        if (clavier.attaquer && pretAttaquer) {
             this.laby.attaquerMonstre();
         }
+        pretAttaquer = !clavier.attaquer;
 
         // affichage console (facultatif)
         for (ObjetRamassable oR : this.laby.pj.getInventaire()) {
