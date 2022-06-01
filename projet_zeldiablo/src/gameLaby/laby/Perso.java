@@ -34,14 +34,14 @@ public class Perso extends Entite {
     }
 
     public int getMeilleureDegats() {
-        int meilleureDegats = inventaire.get(0).getDegats();
+        int meilleureDegats = 0;
         for (ObjetRamassable arme : inventaire) {
             if (meilleureDegats < arme.getDegats()) {
                 meilleureDegats = arme.getDegats();
             }
 
         }
-        return meilleureDegats;
+        return this.getAttaque() + meilleureDegats;
     }
 
     public ArrayList<ObjetRamassable> getInventaire() {
