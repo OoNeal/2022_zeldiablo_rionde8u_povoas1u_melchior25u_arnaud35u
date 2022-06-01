@@ -7,7 +7,7 @@ public class Clavier {
     /**
      * controle appuyes
      */
-    public boolean haut, bas, gauche, droite, ramasser;
+    public boolean haut, bas, gauche, droite, ramasser, attaquer;
 
     /**
      * stocke les commandes
@@ -41,6 +41,11 @@ public class Clavier {
             // si touche ramasser
             case E:
                 this.ramasser = true;
+                break;
+
+            // si touche attaquer
+            case SPACE:
+                this.attaquer = true;
                 break;
 
         }
@@ -79,6 +84,11 @@ public class Clavier {
             // si touche ramasser
             case E:
                 this.ramasser = false;
+                break;
+
+            // si touche attaquer
+            case SPACE:
+                this.attaquer = false;
                 break;
 
         }
