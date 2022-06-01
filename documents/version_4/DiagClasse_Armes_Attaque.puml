@@ -118,7 +118,7 @@ ObjetRamassable  <|-- "Potion"
 ObjetRamassable  <|-- "Arme"
 Arme <|-- "Epee"
 Arme <|-- "Dague"
-Monstre "*" <-- "0..1" Labyrinthe: -monstres : ArrayList<Monstre>
+Monstre "*" <- "0..1" Labyrinthe: -monstres : ArrayList<Monstre>
 Position <|--  ObjetRamassable
 Position <|-- Entite
 Entite <|-- Monstre
