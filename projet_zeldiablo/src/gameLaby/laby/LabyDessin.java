@@ -1,8 +1,5 @@
 package gameLaby.laby;
 
-import gameArkanoid.ArkanoidJeu;
-import gameArkanoid.Balle;
-import gameArkanoid.Raquette;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -36,8 +33,7 @@ public class LabyDessin implements DessinJeu {
                     gc.setFill(Color.BLACK);
                 } else {
                     gc.setFill(Color.WHITE);
-                    for (int h = 0; h < objetsLaby.size(); h++) {
-                        ObjetRamassable temp = objetsLaby.get(h);
+                    for (ObjetRamassable temp : objetsLaby) {
                         if (temp.equals(new Position(i, j))) {
                             gc.setFill(Color.GREEN);
                         }
@@ -58,10 +54,11 @@ public class LabyDessin implements DessinJeu {
 
         // dessin monstre
         gc.setFill(Color.VIOLET);
-        Monstre m = labyJeu.getLaby().monster;
-        double mx = m.getX();
-        double my = m.getY();
-        gc.fillOval(50*mx, 50*my, 50, 50);
+        for (Monstre m : labyJeu.getLaby().monstres) {
+            double mx = m.getX();
+            double my = m.getY();
+            gc.fillOval(50*mx, 50*my, 50, 50);
+        }
 
     }
 
