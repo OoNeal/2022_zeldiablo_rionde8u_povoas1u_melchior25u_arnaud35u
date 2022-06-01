@@ -264,11 +264,8 @@ public class Labyrinthe {
 
 
     public void attaquerMonstre() {
-        if (this.monstres.size() > 0) {
+        if (!this.monstres.isEmpty()) {
             for (Monstre m : this.monstres) {
-                if (this.monstres.size() == 0){
-                    break;
-                }
                 if (m.getX() == this.pj.getX() + 1 && m.getY() == this.pj.getY()) {
                     m.subirDegats(this.pj.getMeilleureDegats());
                 }
@@ -283,6 +280,9 @@ public class Labyrinthe {
                 }
                 if (m.getVie() <= 0) {
                     this.monstres.remove(m);
+                }
+                if (this.monstres.isEmpty()) {
+                    break;
                 }
             }
         }
