@@ -14,7 +14,7 @@ public class AttaqueTest {
     @Test
     public void test0_CreationLabyrinthe() throws Exception{
         // methode testee
-        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstreTest.txt");
 
         // verification
 
@@ -30,7 +30,7 @@ public class AttaqueTest {
     @Test
     public void test1_attaqueMonstre_sansArme() throws Exception{
         // preparation des donnees
-        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstreTest.txt");
         laby.deplacerPerso("Haut");
         laby.deplacerPerso("Gauche");
         laby.deplacerPerso("Gauche");
@@ -49,7 +49,7 @@ public class AttaqueTest {
     @Test
     public void test2_attaqueMonstre_avecDague() throws Exception{
         // preparation des donnees
-        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstreTest.txt");
         laby.deplacerPerso("Haut");
         laby.deplacerPerso("Gauche");
         laby.ramasserObjet();
@@ -69,7 +69,7 @@ public class AttaqueTest {
     @Test
     public void test3_attaqueMonstre_avecEpee() throws Exception{
         // preparation des donnees
-        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstreTest.txt");
         laby.deplacerPerso("Haut");
         laby.ramasserObjet();
         laby.deplacerPerso("Gauche");
@@ -89,7 +89,7 @@ public class AttaqueTest {
     @Test
     public void test4_attaqueMonstre_avecEpeeEtDague() throws Exception{
         // preparation des donnees
-        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstreTest.txt");
         laby.deplacerPerso("Haut");
         laby.ramasserObjet();
         laby.deplacerPerso("Gauche");
@@ -110,7 +110,7 @@ public class AttaqueTest {
     @Test
     public void test4_deplacerPerso_MonstreDevant() throws Exception{
         // preparation des donnees
-        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstreTest.txt");
         laby.deplacerPerso("Haut");
         laby.deplacerPerso("Gauche");
         laby.deplacerPerso("Gauche");
@@ -131,7 +131,7 @@ public class AttaqueTest {
     @Test
     public void test4_attaqueMonstre_persoPasACoteMonstre() throws Exception{
         // preparation des donnees
-        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstreTest.txt");
         laby.deplacerPerso("Haut");
         laby.deplacerPerso("Gauche");
 
