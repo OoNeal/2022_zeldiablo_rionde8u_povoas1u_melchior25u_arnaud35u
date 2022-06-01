@@ -40,7 +40,7 @@ public class Labyrinthe {
     /**
      * attribut du monstre
      */
-    public Monstre monster;
+    public ArrayList<Monstre> monstres;
 
     /**
      * les murs du labyrinthe
@@ -107,7 +107,7 @@ public class Labyrinthe {
         this.murs = new boolean[nbColonnes][nbLignes];
         this.pj = null;
         this.objets = new ArrayList<ObjetRamassable>();
-        this.monster = null;
+        this.monstres = new ArrayList<Monstre>();
 
         // lecture des cases
         String ligne = bfRead.readLine();
@@ -150,7 +150,7 @@ public class Labyrinthe {
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute Monstre
-                        this.monster = new Monstre(colonne, numeroLigne);
+                        this.monstres.add(new Monstre(colonne, numeroLigne));
                         break;
                     case DAGUE:
                         // pas de mur
@@ -189,13 +189,8 @@ public class Labyrinthe {
 
         // si c'est pas un mur, on effectue le deplacement
         if (!this.murs[suivante[0]][suivante[1]]) {
-            if (this.monster != null) {
-                if (!this.monster.equals(new Position(suivante[0], suivante[1]))) {
-                    // on met a jour personnage
-                    this.pj.setX(suivante[0]);
-                    this.pj.setY(suivante[1]);
-                }
-            } else {
+            if (!monstres.equals(new Position(suivante[0], suivante[1]))) {
+                // on met a jour personnage
                 this.pj.setX(suivante[0]);
                 this.pj.setY(suivante[1]);
             }
@@ -230,7 +225,7 @@ public class Labyrinthe {
     /**
      * return taille selon Y
      *
-     * @return
+     * @return int
      */
     public int getLengthY() {
         return murs[0].length;
@@ -239,7 +234,7 @@ public class Labyrinthe {
     /**
      * return taille selon X
      *
-     * @return
+     * @return int
      */
     public int getLength() {
         return murs.length;
@@ -259,8 +254,22 @@ public class Labyrinthe {
 
     public void attaquerMonstre()
     {
-
-        this.monster.subirDegats(this.pj.getMeilleureDegats());
-
+        for (Monstre m : this.monstres) {
+            if (m.getX() == this.pj.getX()+1 && m.getY() == this.pj.getY()) {
+                m.subirDegats(this.pj.getMeilleureDegats());
+            }
+            if (m.getX() == this.pj.getX()-1 && m.getY() == this.pj.getY()) {
+                m.subirDegats(this.pj.getMeilleureDegats());
+            }
+            if (m.getX() == this.pj.getX() && m.getY() == this.pj.getY()+1) {
+                m.subirDegats(this.pj.getMeilleureDegats());
+            }
+            if (m.getX() == this.pj.getX() && m.getY() == this.pj.getY()-1) {
+                m.subirDegats(this.pj.getMeilleureDegats());
+            }
+            if (m.getVie() <= 0) {
+                this.monstres.remove(m);
+            }
+        }
     }
 }
