@@ -35,7 +35,17 @@ public class LabyDessin implements DessinJeu {
                     gc.setFill(Color.WHITE);
                     for (ObjetRamassable temp : objetsLaby) {
                         if (temp.equals(new Position(i, j))) {
-                            gc.setFill(Color.GREEN);
+                            switch (temp.getDegats()) {
+                                case 0:
+                                    gc.setFill(Color.YELLOW);
+                                    break;
+                                case 2:
+                                    gc.setFill(Color.BLUE);
+                                    break;
+                                case 3:
+                                    gc.setFill(Color.GREEN);
+                                    break;
+                            }
                         }
                     }
                 }
