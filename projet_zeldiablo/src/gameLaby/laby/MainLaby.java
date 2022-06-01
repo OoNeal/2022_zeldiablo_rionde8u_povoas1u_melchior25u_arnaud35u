@@ -10,10 +10,10 @@ import java.io.IOException;
 public class MainLaby {
 
     public static void main(String[] args) throws IOException {
-        int pFPS = 60;
+        int pFPS = 20;
 
         // creation des objets
-        LabyJeu jeuLaby = new LabyJeu("labySimple/labyMonstre.txt");
+        LabyJeu jeuLaby = new LabyJeu("labySimple/labyJeu.txt");
         LabyDessin dessinLaby = new LabyDessin();
 
         int width = 50*jeuLaby.getLaby().getLength();

@@ -14,13 +14,13 @@ public class AttaqueTest {
     @Test
     public void test0_CreationLabyrinthe() throws Exception{
         // methode testee
-        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstreTest.txt");
 
         // verification
 
-        assertEquals(2, laby.monstres.get(0).getX());
-        assertEquals(4, laby.monstres.get(0).getY());
-        assertEquals(10, laby.monstres.get(0).getVie(), "Le monstre devrait avoir 10 pv");
+        assertEquals(2, laby.monstres.get(1).getX());
+        assertEquals(4, laby.monstres.get(1).getY());
+        assertEquals(10, laby.monstres.get(1).getVie(), "Le monstre devrait avoir 10 pv");
 
     }
 
@@ -30,7 +30,7 @@ public class AttaqueTest {
     @Test
     public void test1_attaqueMonstre_sansArme() throws Exception{
         // preparation des donnees
-        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstreTest.txt");
         laby.deplacerPerso("Haut");
         laby.deplacerPerso("Gauche");
         laby.deplacerPerso("Gauche");
@@ -39,7 +39,7 @@ public class AttaqueTest {
         laby.attaquerMonstre();
 
         // verification
-        assertEquals(7, laby.monstres.get(0).getVie(), "Le monstre devrait avoir 7 pv");
+        assertEquals(7, laby.monstres.get(1).getVie(), "Le monstre devrait avoir 7 pv");
 
     }
 
@@ -49,7 +49,7 @@ public class AttaqueTest {
     @Test
     public void test2_attaqueMonstre_avecDague() throws Exception{
         // preparation des donnees
-        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstreTest.txt");
         laby.deplacerPerso("Haut");
         laby.deplacerPerso("Gauche");
         laby.ramasserObjet();
@@ -59,7 +59,7 @@ public class AttaqueTest {
         laby.attaquerMonstre();
 
         // verification
-        assertEquals(5, laby.monstres.get(0).getVie(), "Le monstre devrait avoir 5 pv");
+        assertEquals(5, laby.monstres.get(1).getVie(), "Le monstre devrait avoir 5 pv");
 
     }
 
@@ -69,7 +69,7 @@ public class AttaqueTest {
     @Test
     public void test3_attaqueMonstre_avecEpee() throws Exception{
         // preparation des donnees
-        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstreTest.txt");
         laby.deplacerPerso("Haut");
         laby.ramasserObjet();
         laby.deplacerPerso("Gauche");
@@ -79,7 +79,7 @@ public class AttaqueTest {
         laby.attaquerMonstre();
 
         // verification
-        assertEquals(4, laby.monstres.get(0).getVie(), "Le monstre devrait avoir 4 pv");
+        assertEquals(4, laby.monstres.get(1).getVie(), "Le monstre devrait avoir 4 pv");
 
     }
 
@@ -89,7 +89,7 @@ public class AttaqueTest {
     @Test
     public void test4_attaqueMonstre_avecEpeeEtDague() throws Exception{
         // preparation des donnees
-        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstreTest.txt");
         laby.deplacerPerso("Haut");
         laby.ramasserObjet();
         laby.deplacerPerso("Gauche");
@@ -100,7 +100,7 @@ public class AttaqueTest {
         laby.attaquerMonstre();
 
         // verification
-        assertEquals(4, laby.monstres.get(0).getVie(), "Le monstre devrait avoir 4 pv");
+        assertEquals(4, laby.monstres.get(1).getVie(), "Le monstre devrait avoir 4 pv");
 
     }
 
@@ -110,7 +110,7 @@ public class AttaqueTest {
     @Test
     public void test4_deplacerPerso_MonstreDevant() throws Exception{
         // preparation des donnees
-        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstreTest.txt");
         laby.deplacerPerso("Haut");
         laby.deplacerPerso("Gauche");
         laby.deplacerPerso("Gauche");
@@ -131,7 +131,7 @@ public class AttaqueTest {
     @Test
     public void test4_attaqueMonstre_persoPasACoteMonstre() throws Exception{
         // preparation des donnees
-        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstreTest.txt");
         laby.deplacerPerso("Haut");
         laby.deplacerPerso("Gauche");
 
@@ -139,7 +139,7 @@ public class AttaqueTest {
         laby.attaquerMonstre();
 
         // verification
-        assertEquals(10, laby.monstres.get(0).getVie(), "Le monstre devrait avoir 10 pv");
+        assertEquals(10, laby.monstres.get(1).getVie(), "Le monstre devrait avoir 10 pv");
 
     }
 

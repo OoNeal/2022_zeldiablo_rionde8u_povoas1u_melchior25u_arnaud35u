@@ -14,7 +14,7 @@ public class InventaireTest {
     @Test
     public void test0_CreationLabyrinthe() throws Exception{
         // methode testee
-        Labyrinthe laby = new Labyrinthe("labySimple/labyObjet.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/labyObjetTest.txt");
 
         // verification
         assertEquals(laby.objets.size(), 2, "Il devrai y avoir 2 objets sur le labyrinthe");
@@ -33,7 +33,7 @@ public class InventaireTest {
     @Test
     public void test1_RamasserObjet_CaseVide() throws Exception{
         // preparation des donnees
-        Labyrinthe laby = new Labyrinthe("labySimple/labyObjet.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/labyObjetTest.txt");
 
         // methode testee
         laby.ramasserObjet();
@@ -49,7 +49,7 @@ public class InventaireTest {
     @Test
     public void test2_RamasserObjet_CaseObjet() throws Exception{
         // preparation des donnees
-        Labyrinthe laby = new Labyrinthe("labySimple/labyObjet.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/labyObjetTest.txt");
         laby.deplacerPerso("Haut");
 
         // methode testee
@@ -67,7 +67,7 @@ public class InventaireTest {
     @Test
     public void test3_RamasserObjet_2CaseObjet() throws Exception{
         // preparation des donnees
-        Labyrinthe laby = new Labyrinthe("labySimple/labyObjet.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/labyObjetTest.txt");
         laby.deplacerPerso("Haut");
         laby.ramasserObjet();
         laby.deplacerPerso("Haut");
