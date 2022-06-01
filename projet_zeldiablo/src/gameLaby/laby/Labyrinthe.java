@@ -197,7 +197,7 @@ public class Labyrinthe {
         }
     }
 
-    public void ramasserObjet(){
+    public void ramasserObjet() {
         for (ObjetRamassable oR : this.objets) {
             if (this.pj.equals(oR)) {
                 this.objets.remove(oR);
@@ -206,7 +206,6 @@ public class Labyrinthe {
             }
         }
     }
-
 
 
     /**
@@ -242,6 +241,7 @@ public class Labyrinthe {
 
     /**
      * return mur en (i,j)
+     *
      * @param x
      * @param y
      * @return
@@ -252,23 +252,27 @@ public class Labyrinthe {
     }
 
 
-    public void attaquerMonstre()
-    {
-        for (Monstre m : this.monstres) {
-            if (m.getX() == this.pj.getX()+1 && m.getY() == this.pj.getY()) {
-                m.subirDegats(this.pj.getMeilleureDegats());
-            }
-            if (m.getX() == this.pj.getX()-1 && m.getY() == this.pj.getY()) {
-                m.subirDegats(this.pj.getMeilleureDegats());
-            }
-            if (m.getX() == this.pj.getX() && m.getY() == this.pj.getY()+1) {
-                m.subirDegats(this.pj.getMeilleureDegats());
-            }
-            if (m.getX() == this.pj.getX() && m.getY() == this.pj.getY()-1) {
-                m.subirDegats(this.pj.getMeilleureDegats());
-            }
-            if (m.getVie() <= 0) {
-                this.monstres.remove(m);
+    public void attaquerMonstre() {
+        if (this.monstres.size() > 0) {
+            for (Monstre m : this.monstres) {
+                if (this.monstres.size() == 0){
+                    break;
+                }
+                if (m.getX() == this.pj.getX() + 1 && m.getY() == this.pj.getY()) {
+                    m.subirDegats(this.pj.getMeilleureDegats());
+                }
+                if (m.getX() == this.pj.getX() - 1 && m.getY() == this.pj.getY()) {
+                    m.subirDegats(this.pj.getMeilleureDegats());
+                }
+                if (m.getX() == this.pj.getX() && m.getY() == this.pj.getY() + 1) {
+                    m.subirDegats(this.pj.getMeilleureDegats());
+                }
+                if (m.getX() == this.pj.getX() && m.getY() == this.pj.getY() - 1) {
+                    m.subirDegats(this.pj.getMeilleureDegats());
+                }
+                if (m.getVie() <= 0) {
+                    this.monstres.remove(m);
+                }
             }
         }
     }
