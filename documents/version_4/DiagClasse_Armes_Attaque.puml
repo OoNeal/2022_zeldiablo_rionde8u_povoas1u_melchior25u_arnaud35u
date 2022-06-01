@@ -75,6 +75,7 @@ class Perso {
   + Perso(x : int, y : int)
   + etrePresent(dx : int, dy : int) : boolean
   + getInventaire() : ArrayList<ObjetRamassable>
+  + getMeilleureDegats() : int
 }
 
 class Entite {
@@ -83,7 +84,7 @@ class Entite {
     + Entite(x : int, y : int, v : int, atq : int)
     + subirDegats(degats : int)
     + getVie() : int
-    + getDegats() : int
+    + getAttaque() : int
 }
 
 class Monstre {
