@@ -18,68 +18,130 @@ public class AttaqueTest {
 
         // verification
 
-        assertEquals(2, laby.monster.getY());
-        assertEquals(4, laby.monster.getX());
+        assertEquals(2, laby.monster.getX());
+        assertEquals(4, laby.monster.getY());
+        assertEquals(10, laby.monster.getVie(), "Le monstre devrait avoir 10 pv");
 
     }
 
     /**
-     * test ramasserObjet lorsqu'il n'y a pas d'objet sur la case
+     * test attaquerMonstre lorsque le perso n'a pas d'arme
      */
     @Test
     public void test1_attaqueMonstre_sansArme() throws Exception{
         // preparation des donnees
         Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
-
-        // methode testee
-        laby.ramasserObjet();
-
-
-        // verification
-        assertEquals(2, laby.objets.size(), "Il devrai y avoir 2 objets sur le labyrinthe");
-        assertEquals(0, laby.pj.getInventaire().size(), "L inventaire devrait etre vide");
-    }
-
-    /**
-     * test ramasserObjet lorsqu'il y a un objet sur la case
-     */
-    @Test
-    public void test2_RamasserObjet_CaseObjet() throws Exception{
-        // preparation des donnees
-        Labyrinthe laby = new Labyrinthe("labySimple/labyObjet.txt");
         laby.deplacerPerso("Haut");
+        laby.deplacerPerso("Gauche");
+        laby.deplacerPerso("Gauche");
 
         // methode testee
-        laby.ramasserObjet();
+        laby.attaquerMonstre();
 
         // verification
-        assertEquals(1, laby.objets.size(), "Il devrai y avoir 1 objets sur le labyrinthe");
-        assertEquals(1, laby.pj.getInventaire().size(), "Il devrai y avoir 1 objets dans l inventaire");
+        assertEquals(7, laby.monster.getVie(), "Le monstre devrait avoir 7 pv");
 
     }
 
     /**
-     * test ramasserObjet lorsqu'il y a un objet sur la case et que l'on deja un objet
+     * test attaquerMonstre lorsque le perso a une dague
      */
     @Test
-    public void test3_RamasserObjet_2CaseObjet() throws Exception{
+    public void test2_attaqueMonstre_avecDague() throws Exception{
         // preparation des donnees
-        Labyrinthe laby = new Labyrinthe("labySimple/labyObjet.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
+        laby.deplacerPerso("Haut");
+        laby.deplacerPerso("Gauche");
+        laby.ramasserObjet();
+        laby.deplacerPerso("Gauche");
+
+        // methode testee
+        laby.attaquerMonstre();
+
+        // verification
+        assertEquals(5, laby.monster.getVie(), "Le monstre devrait avoir 5 pv");
+
+    }
+
+    /**
+     * test attaquerMonstre lorsque le perso a une epee
+     */
+    @Test
+    public void test3_attaqueMonstre_avecEpee() throws Exception{
+        // preparation des donnees
+        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
         laby.deplacerPerso("Haut");
         laby.ramasserObjet();
+        laby.deplacerPerso("Gauche");
+        laby.deplacerPerso("Gauche");
+
+        // methode testee
+        laby.attaquerMonstre();
+
+        // verification
+        assertEquals(4, laby.monster.getVie(), "Le monstre devrait avoir 4 pv");
+
+    }
+
+    /**
+     * test attaquerMonstre lorsque le perso a une epee et une dague (et attaque donc avec l epee)
+     */
+    @Test
+    public void test4_attaqueMonstre_avecEpeeEtDague() throws Exception{
+        // preparation des donnees
+        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
+        laby.deplacerPerso("Haut");
+        laby.ramasserObjet();
+        laby.deplacerPerso("Gauche");
+        laby.ramasserObjet();
+        laby.deplacerPerso("Gauche");
+
+        // methode testee
+        laby.attaquerMonstre();
+
+        // verification
+        assertEquals(4, laby.monster.getVie(), "Le monstre devrait avoir 4 pv");
+
+    }
+
+    /**
+     * test deplacerPerso quand il y a un monstre sur son chemin (devant lui)
+     */
+    @Test
+    public void test4_deplacerPerso_MonstreDevant() throws Exception{
+        // preparation des donnees
+        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
+        laby.deplacerPerso("Haut");
+        laby.deplacerPerso("Gauche");
+        laby.deplacerPerso("Gauche");
+
+        // methode testee
+        laby.deplacerPerso("Gauche");
+
+        // verification
+        assertEquals(3, laby.pj.getX(), "Le perso devrait etre a la coordonne X 3");
+        assertEquals(4, laby.pj.getY(), "Le perso devrait etre a la coordonne Y 4");
+
+
+    }
+
+    /**
+     * test attaquerMonstre lorsque le perso a une epee et une dague (et attaque donc avec l epee)
+     */
+    @Test
+    public void test4_attaqueMonstre_persoPasACoteMonstre() throws Exception{
+        // preparation des donnees
+        Labyrinthe laby = new Labyrinthe("labySimple/labyMonstre.txt");
         laby.deplacerPerso("Haut");
         laby.deplacerPerso("Gauche");
 
         // methode testee
-        laby.ramasserObjet();
+        laby.attaquerMonstre();
 
         // verification
-        assertEquals(0, laby.objets.size(), "Il devrai y avoir 0 objets sur le labyrinthe");
-        assertEquals(2, laby.pj.getInventaire().size(), "Il devrai y avoir 2 objets dans l inventaire");
-
+        assertEquals(10, laby.monster.getVie(), "Le monstre devrait avoir 10 pv");
 
     }
-
 
 
 }

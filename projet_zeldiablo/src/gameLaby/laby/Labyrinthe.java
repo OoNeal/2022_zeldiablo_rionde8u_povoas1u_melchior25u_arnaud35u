@@ -189,8 +189,13 @@ public class Labyrinthe {
 
         // si c'est pas un mur, on effectue le deplacement
         if (!this.murs[suivante[0]][suivante[1]]) {
-            if (!monster.equals(new Position(suivante[0], suivante[1]))) {
-                // on met a jour personnage
+            if (this.monster != null) {
+                if (!this.monster.equals(new Position(suivante[0], suivante[1]))) {
+                    // on met a jour personnage
+                    this.pj.setX(suivante[0]);
+                    this.pj.setY(suivante[1]);
+                }
+            } else {
                 this.pj.setX(suivante[0]);
                 this.pj.setY(suivante[1]);
             }
