@@ -66,16 +66,21 @@ class Position {
     x : int
     y : int
     + Position(int x, int y)
-    + getX() ; int
+    + getX() : int
     + getY() : int
+    + setX(x : int)
+    + setY(y : int)
     + equals(Position p) : boolean
 }
 
 class Perso {
+  - meilleureArme : int
   + Perso(x : int, y : int)
   + etrePresent(dx : int, dy : int) : boolean
   + getInventaire() : ArrayList<ObjetRamassable>
+  + changerMeilleureArme()
   + getMeilleureDegats() : int
+  + getMeilleureArme() : int
 }
 
 class Entite {
@@ -111,6 +116,12 @@ class ChargerImage {
   + imageDague
   + imagePotion
   + ChargerImage()
+  + getImageMur() : Image
+  + getImagePerso() : Image
+  + getImageMonstre() : Image
+  + getImageEpee() : Image
+  + getImageDague() : Image
+  + getImagePotion() : Image
 }
 }
 
@@ -128,13 +139,13 @@ ObjetRamassable  <|-- "Potion"
 ObjetRamassable  <|-- "Arme"
 Arme <|-- "Epee"
 Arme <|-- "Dague"
-Monstre "*" <- "0..1" Labyrinthe: -monstres : ArrayList<Monstre>
+Monstre "*" <-- "0..1" Labyrinthe: -monstres : ArrayList<Monstre>
 Position <|--  ObjetRamassable
 Position <|-- Entite
 Entite <|-- Monstre
 Entite <|-- Perso
 
-ChargerImage "1" <- "1" LabyDessin : + images
+ChargerImage "1" <-- "1" LabyDessin : + images
 
 
 @enduml
