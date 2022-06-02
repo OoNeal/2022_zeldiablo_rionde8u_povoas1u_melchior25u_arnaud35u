@@ -13,6 +13,7 @@ create r
 main-> r :new
 main -> m : moteurJeu.launch(jeu,dessin)
 activate m
+create gc
 m -> gc : new
 m <-- gc
 loop Timer
