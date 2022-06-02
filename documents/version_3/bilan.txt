@@ -1,2 +1,5 @@
 Nous avons bien reussi à implementer les fonctionnalites choisies.
 Tous les tests fonctionnent comme prevus.
+
+Les fonctionalites ajoutees sont :
+    - 7.1 Ajout d'un inventaire
