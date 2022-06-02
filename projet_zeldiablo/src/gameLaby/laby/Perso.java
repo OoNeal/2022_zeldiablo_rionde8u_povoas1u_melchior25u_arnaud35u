@@ -13,6 +13,7 @@ public class Perso extends Entite {
      */
     private ArrayList<ObjetRamassable> inventaire;
 
+    private int meilleureArme;
     /**
      * constructeur
      *
@@ -22,6 +23,7 @@ public class Perso extends Entite {
     public Perso(int x, int y) {
         super(x, y, 10, 3);
         inventaire = new ArrayList<ObjetRamassable>();
+        this.meilleureArme = -1;
     }
 
     /**
@@ -36,19 +38,24 @@ public class Perso extends Entite {
         return (super.getX() == dx && super.getY() == dy);
     }
 
-    /**
-     * methode permettant de connaitre les meilleurs degats possibles que le perso peut faire
-     * @return meilleurs degats possibles
-     */
+
+    public void changerMeilleureArme() {
+        if (this.meilleureArme == -1) {
+            if (this.inventaire.get(this.inventaire.size()-1).getDegats() > 0) {
+                this.meilleureArme = this.inventaire.size() - 1;
+            }
+        } else if (this.inventaire.get(this.inventaire.size()-1).getDegats() > this.inventaire.get(this.meilleureArme).getDegats()) {
+            this.meilleureArme = this.inventaire.size() - 1;
+        }
+    }
+
+
     public int getMeilleureDegats() {
         int meilleureDegats = 0;
-        for (ObjetRamassable arme : inventaire) {
-            if (meilleureDegats < arme.getDegats()) {
-                meilleureDegats = arme.getDegats();
-            }
-
+        if (this.meilleureArme != -1) {
+            meilleureDegats = this.inventaire.get(this.meilleureArme).getDegats();
         }
-        return this.getAttaque() + meilleureDegats;
+        return meilleureDegats + this.getAttaque();
     }
 
     /**
@@ -57,5 +64,9 @@ public class Perso extends Entite {
      */
     public ArrayList<ObjetRamassable> getInventaire() {
         return inventaire;
+    }
+
+    public int getMeilleureArme() {
+        return this.meilleureArme;
     }
 }

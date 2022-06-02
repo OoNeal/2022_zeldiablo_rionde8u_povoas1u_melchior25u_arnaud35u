@@ -220,9 +220,10 @@ public class Labyrinthe {
      */
     public void ramasserObjet() {
         for (ObjetRamassable oR : this.objets) {
-            if (this.pj.equals(oR)) {
+            if (this.pj.equals(oR) && this.pj.getInventaire().size() < 6) {
                 this.objets.remove(oR);
                 this.pj.getInventaire().add(oR);
+                this.pj.changerMeilleureArme();
                 break;
             }
         }
@@ -294,7 +295,6 @@ public class Labyrinthe {
                 if (m.getVie() <= 0) {
                     this.monstres.remove(m);
                 }
-
             }
         }
     }

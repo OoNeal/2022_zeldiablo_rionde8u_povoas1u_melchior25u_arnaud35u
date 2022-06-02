@@ -22,7 +22,7 @@ public class MainLaby {
         LabyDessin dessinLaby = new LabyDessin();
 
         int width = 50*jeuLaby.getLaby().getLength();
-        int height = 50*jeuLaby.getLaby().getLengthY();
+        int height = 50*jeuLaby.getLaby().getLengthY()+70;
 
         // parametrage du moteur de jeu
         MoteurJeu.setTaille(width,height);

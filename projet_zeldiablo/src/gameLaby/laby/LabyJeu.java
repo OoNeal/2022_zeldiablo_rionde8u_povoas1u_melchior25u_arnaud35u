@@ -60,11 +60,6 @@ public class LabyJeu implements Jeu {
         }
         pretAttaquer = !clavier.attaquer;
 
-        // affichage console (facultatif)
-        for (ObjetRamassable oR : this.laby.pj.getInventaire()) {
-            System.out.println(oR);
-        }
-
     }
 
     /**
