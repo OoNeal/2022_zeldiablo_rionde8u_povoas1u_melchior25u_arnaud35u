@@ -32,6 +32,8 @@ lab -> i : p.getInventaire().add(oR)
 activate i #ffc320
 lab <-- i
 deactivate i
+else else
+lab -> lab : null
 end group
 end loop
 game <-- lab
