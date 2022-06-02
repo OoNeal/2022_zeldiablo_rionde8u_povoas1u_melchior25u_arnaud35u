@@ -1,17 +1,33 @@
-Des objets (sans utilité pour le moment) sont disposés dans des cases vides du labyrinthe, lorsque le héros appuie sur 
+Des objets (sans utilité pour le moment) sont disposés dans des cases vides du labyrinthe, lorsque le héros appuie sur
 la touche d'utilisation ("E" par défaut), il récupère les objets de la case où il se trouve et les ajoute dans son inventaire.
 
-Critères de validation
-• L'inventaire est de taille infinie.
-• Lorsque le joueur cherche à prendre un objet alors qu'il n'y a rien sur la case où
-il se trouve, rien ne se passe.
-• Lorsqu'un joueur prend un objet, l'objet disparait du labyrinthe (et n'est plus
-affiché) mais apparait dans son inventaire.
-• A chaque évolution du jeu, le jeu affiche dans la console l'inventaire du héros.
-• Les objets sont affichés dans le labyrinthe tant qu'ils sont présents (sous la forme
-d'un cercle noir)
+1. Donner une position initiale aux objets
+- Descriptif :
+  - Les objets doivent être ajoutés sur leurs cases du fichier Labyrinthe.
+- Critères de validation :
+  - L'objet doit avoir une position initiale.
+  - L'objet se trouve sur la case indiquée dans le fichier labyrinthe.
+  - Les objets étant de types Dague, Potion
+  - L'objet ne se trouve pas sur la même case que le personnage.
 
+2. Afficher l'objet
+- Descriptif :
+  - le jeu doit afficher l'objet à sa position.
+- Critères de validation :
+  - le monstre doit être affiché à la bonne position dans le labyrinthe.
+  - le monstre sera représenté sous la forme d'un cercle violet de la taille du personnage.
 
+3. Considération de l'objet par rapport au joueur
+- Descriptif :
+    - Le joueur doit pouvoir recuperer l'objet.
+- Critères de validation
+    - L'inventaire est de taille infinie.
+    - Rien ne doit se passer quand le joueur essaye de ramasser un objet sur une case vide
+    - Lorsqu'un joueur prend un objet, l'objet disparait du labyrinthe (et n'est plus
+        affiché) mais apparait dans son inventaire.
+    - A chaque évolution du jeu, le jeu affiche dans la console l'inventaire du héros.
+    - Les objets sont affichés dans le labyrinthe tant qu'ils sont présents (sous la forme
+    d'un cercle noir)
 
 Repartition du travail :
 
