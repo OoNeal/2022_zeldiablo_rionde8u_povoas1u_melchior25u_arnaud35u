@@ -84,6 +84,8 @@ public class LabyDessin implements DessinJeu {
             gc.drawImage(images.getImageMonstre(), 50*mx, 50*my);
         }
 
+
+        // dessin des cases de l'inventaire
         for (int i = 0; i < 6; i++) {
             gc.setFill(Color.BLACK);
             gc.fillRect(canvas.getWidth()/2 + 50*i - 150, canvas.getHeight()-50, 50, 50);
@@ -95,6 +97,8 @@ public class LabyDessin implements DessinJeu {
             gc.fillRect(canvas.getWidth()/2+ 50*i+2 - 150, canvas.getHeight()-48, 46, 46);
         }
 
+
+        // dessin des objets de l inventaire
         ArrayList<ObjetRamassable> inv = labyJeu.getLaby().pj.getInventaire();
 
         for (int i = 0; i < inv.size(); i++) {

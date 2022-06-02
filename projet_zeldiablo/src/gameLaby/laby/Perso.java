@@ -38,7 +38,9 @@ public class Perso extends Entite {
         return (super.getX() == dx && super.getY() == dy);
     }
 
-
+    /**
+     * methode permettant de changer la meilleure arme equipe lorsque l'on ramasse un nouvel objet
+     */
     public void changerMeilleureArme() {
         if (this.meilleureArme == -1) {
             if (this.inventaire.get(this.inventaire.size()-1).getDegats() > 0) {
@@ -49,7 +51,11 @@ public class Perso extends Entite {
         }
     }
 
-
+    /**
+     * methode qui permet d'avoir les meilleurs degats du personnage
+     *
+     * @return les meileures degats du personnage
+     */
     public int getMeilleureDegats() {
         int meilleureDegats = 0;
         if (this.meilleureArme != -1) {
@@ -66,6 +72,10 @@ public class Perso extends Entite {
         return inventaire;
     }
 
+    /**
+     * retourne l'indice de la meilleure arme
+     * @return indice de la meilleure arme
+     */
     public int getMeilleureArme() {
         return this.meilleureArme;
     }
