@@ -9,6 +9,11 @@ import java.io.IOException;
  */
 public class MainLaby {
 
+    /**
+     * methode principale
+     * @param args arguments de la ligne de commande
+     * @throws IOException si le fichier n'existe pas
+     */
     public static void main(String[] args) throws IOException {
         int pFPS = 20;
 

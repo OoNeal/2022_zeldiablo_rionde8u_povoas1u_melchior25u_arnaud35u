@@ -43,12 +43,12 @@ public class Labyrinthe {
     public ArrayList<Monstre> monstres;
 
     /**
-     * les murs du labyrinthe
+     * attribut representant les murs du labyrinthe
      */
     public boolean[][] murs;
 
     /**
-     * Les objets presents sur le labyrinthe
+     * attribut representant les objets presents sur le labyrinthe
      */
     public ArrayList<ObjetRamassable> objets;
 
@@ -215,6 +215,9 @@ public class Labyrinthe {
 
     }
 
+    /**
+     * ramasse un objet ramassable
+     */
     public void ramasserObjet() {
         for (ObjetRamassable oR : this.objets) {
             if (this.pj.equals(oR)) {
@@ -269,7 +272,9 @@ public class Labyrinthe {
         return this.murs[x][y];
     }
 
-
+    /**
+     * methode permettant d'attaquer un monstre
+     */
     public void attaquerMonstre() {
         if (!this.monstres.isEmpty()) {
             for (int i = this.monstres.size()-1; i >= 0; i--) {
