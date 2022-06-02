@@ -1,9 +1,9 @@
 5.2 Attaque du joueur
 
 Lorsque le joueur appuie sur une touche donnée (par défaut la touche espace), il
-eectue une attaque contre les monstres qui se trouvent à côté de lui.
+effectue une attaque contre les monstres qui se trouvent à côté de lui.
 Critères de validation
-• L'attaque a eectivement lieu quand le joueur appuie sur la touche.
+• L'attaque a effectivement lieu quand le joueur appuie sur la touche.
 • TOUS les monstres à côté du joueur prennent un point de dégât.
 • TOUS les monstres éloignés du joueur ne subissent pas de dégâts.
 • S'il n'y a aucun monstre autour du joueur, l'attaque à quand même lieu et empêche
@@ -16,7 +16,7 @@ le déplacement du joueur, mais les monstres ne prennent pas de dégâts.
 Les armes sont des objets que le héros peut prendre. Une arme augmente d'un
 certain nombre les dégâts du héros.
 Critères de validation
-• Une arme est dénie par ses dégâts.
+• Une arme est définie par ses dégâts.
 • Lorsque le héros prend une arme, l'arme est ajoutée à son inventaire et disparait
 du labyrinthe.
 • Lorsqu'un héros possède une arme et attaque un monstre, son attaque est augmentée des dégâts de l'arme.
@@ -27,5 +27,5 @@ plus forte
 
 Repartition des taches :
 
-5.2 Attaque du joueur : Ellian et Antoine
+5.2 Attaque du joueur : Elian et Antoine
 7.2 Armes : Damien et Florian

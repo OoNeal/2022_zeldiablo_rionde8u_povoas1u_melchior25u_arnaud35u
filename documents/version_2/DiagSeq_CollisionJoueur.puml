@@ -6,8 +6,7 @@ participant "laby: LabyJeu" as l
 participant "dessin:DessinJeu" as r #FF8888
 participant "jeu:Jeu" as game #FF8888
 participant "labyrinthe: Labyrinthe" as lab
-participant "objets:Arraylist<ObjetRamassable>" as o
-participant "inventaire:Arraylist<ObjetRamassable>" as i
+participant "perso:Perso" as pj
 create game
 main-> game : new
 create r
@@ -19,25 +18,25 @@ loop Timer
 l -> game : update(duree,clavier)
 activate l
 activate game
-
-l -> lab : ramasserObjet()
+l -> lab : deplacerPerso(action)
 activate lab
-loop for(ObjetRamassable oR : this.objets)
-group if (this.pj.equals(oR))
-lab -> lab : false
+lab -> pj : posX = getX()
+activate pj
+lab <-- pj : int
+pj -> lab : posY = getY()
+lab <-- pj : int
+deactivate pj
+loop for (Monstre monster : this.monstres)
+group if(monster.equals(getSuivant(posX,posY)))
+lab -> lab : bouge = false
+else else
+lab -> lab : bouge = true
 end group
 end loop
-game <-- lab
-deactivate lab
 
 game --> l
 deactivate game
 deactivate l
-
-
-
-
-
 
 end
 
