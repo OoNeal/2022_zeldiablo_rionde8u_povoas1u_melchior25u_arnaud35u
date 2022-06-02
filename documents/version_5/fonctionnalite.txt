@@ -1,0 +1,26 @@
+11.1 Achage avec des sprites
+
+La fenêtre n'afiche plus des figures de base (rond, ...) mais des sprites représentant
+les personnages et les objets (http://fr.wikipedia.org/wiki/Sprite_%28jeu_vid%C3%A9o%29).
+
+Critères de validation
+• Les sprites concernent les murs, les monstres et le héros.
+• Ils sont chargés une fois pour toute au lancement de l'application et ils peuvent
+être achés dans le JPanel grâce à la méthode drawImage.
+• Vous pourrez utiliser l'image http://www.qcfdesign.com/?p=354 qui est un ensemble de sprites pour le jeu Desktop Dungeons. Ces sprites sont disposés régulièrement dans l'image et sont donc facile à extraire à partir de l'Image.
+• Il est possible de charger une image (de type BufferedImage en mémoire grâce à
+la classe ImageIO et la méthode statique read).
+
+
+7.4 Afichage de l'inventaire
+
+L'inventaire est afiché dans la fenêtre de jeu.
+
+Critères de validation
+• L'inventaire est représenté par 6 cases carrées en bas de la fenêtre de jeu
+• A chaque fois qu'un joueur prend un objet, en plus de disparaitre dans le labyrinthe, celui-ci s'ache dans l'inventaire
+• Les objets sélectionnés (meilleure arme et meilleur bouclier) sont d'une couleur
+différente.
+• Les objets achés dans l'inventaire ont des formes spéciques (rond pour un
+bouclier et un trait vertical pour une arme).
+• Lorsqu'un bouclier est détruit, il disparait de l'inventaire.
