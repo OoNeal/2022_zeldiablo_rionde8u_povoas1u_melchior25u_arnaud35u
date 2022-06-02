@@ -1,0 +1,40 @@
+@startuml
+hide footbox
+
+participant "main:Main" as main
+participant "laby: LabyJeu" as l
+participant "moteurJeu:MoteurJeu" as m
+participant "dessin:DessinJeu" as r #FF8888
+participant "jeu:Jeu" as game #FF8888
+participant "gc : Canvas" as gc #FF8888
+create game
+main-> game : new
+create r
+main-> r :new
+main -> m : moteurJeu.launch(jeu,dessin)
+activate m
+m -> gc : new
+m <-- gc
+loop Timer
+m -> r : dessinerJeu(jeu, gc)
+activate r
+loop for (Monstre m : labyJeu.getLaby().monstres)
+r -> gc :fillOval(50*m.getX(),50*m.getY(),50,50)
+activate gc
+r <-- gc
+deactivate gc
+m <-- r
+deactivate r
+main <-- m
+deactivate m
+
+
+
+
+
+
+end
+
+deactivate l
+
+@enduml
