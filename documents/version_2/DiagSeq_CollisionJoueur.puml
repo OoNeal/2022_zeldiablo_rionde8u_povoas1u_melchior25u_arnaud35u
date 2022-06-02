@@ -1,0 +1,45 @@
+@startuml
+hide footbox
+
+participant "main:Main" as main
+participant "laby: LabyJeu" as l
+participant "dessin:DessinJeu" as r #FF8888
+participant "jeu:Jeu" as game #FF8888
+participant "labyrinthe: Labyrinthe" as lab
+participant "perso:Perso" as pj
+create game
+main-> game : new
+create r
+main-> r :new
+
+loop Timer
+
+
+l -> game : update(duree,clavier)
+activate l
+activate game
+l -> lab : deplacerPerso(action)
+activate lab
+lab -> pj : posX = getX()
+activate pj
+lab <-- pj : int
+pj -> lab : posY = getY()
+lab <-- pj : int
+deactivate pj
+loop for (Monstre monster : this.monstres)
+group if(monster.equals(getSuivant(posX,posY)))
+lab -> lab : bouge = false
+else else
+lab -> lab : bouge = true
+end group
+end loop
+
+game --> l
+deactivate game
+deactivate l
+
+end
+
+deactivate l
+
+@enduml
