@@ -3,9 +3,14 @@ package gameLaby.laby;
 import java.io.IOException;
 
 /**
- * charge et affiche un labyrinthe
+ * classe qui charge et affiche un labyrinthe
  */
 public class Main {
+    /**
+     * methode principale
+     * @param args arguments de la ligne de commande
+     * @throws IOException si le fichier n'existe pas
+     */
     public static void main(String[] args) throws IOException {
 
         // charge le labyrinthe

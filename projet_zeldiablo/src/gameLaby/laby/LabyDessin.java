@@ -8,8 +8,16 @@ import moteurJeu.Jeu;
 
 import java.util.ArrayList;
 
+/**
+ * classe LabyDessin qui permet de dessiner le labyrinthe
+ */
 public class LabyDessin implements DessinJeu {
 
+    /**
+     * methode permettant de dessiner le jeu
+     * @param jeu jeu a afficher
+     * @param canvas canvas dans lequel dessiner l'etat du jeu
+     */
     @Override
     public void dessinerJeu(Jeu jeu, Canvas canvas) {
         LabyJeu labyJeu = (LabyJeu) jeu;

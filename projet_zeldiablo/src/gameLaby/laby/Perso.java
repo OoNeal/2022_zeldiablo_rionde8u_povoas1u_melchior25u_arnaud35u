@@ -4,10 +4,13 @@ package gameLaby.laby;
 import java.util.ArrayList;
 
 /**
- * gere un personnage situe en x,y
+ * classe qui gere un personnage situe en x,y
  */
 public class Perso extends Entite {
 
+    /**
+     * attribut representant la liste des objets ramassables possédés par le personnage
+     */
     private ArrayList<ObjetRamassable> inventaire;
 
     /**
@@ -33,6 +36,10 @@ public class Perso extends Entite {
         return (super.getX() == dx && super.getY() == dy);
     }
 
+    /**
+     * methode permettant de connaitre les meilleurs degats possibles que le perso peut faire
+     * @return meilleurs degats possibles
+     */
     public int getMeilleureDegats() {
         int meilleureDegats = 0;
         for (ObjetRamassable arme : inventaire) {
@@ -44,6 +51,10 @@ public class Perso extends Entite {
         return this.getAttaque() + meilleureDegats;
     }
 
+    /**
+     * getter de l'inventaire du personnage
+     * @return inventaire du personnage
+     */
     public ArrayList<ObjetRamassable> getInventaire() {
         return inventaire;
     }
