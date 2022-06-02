@@ -1,0 +1,42 @@
+@startuml
+hide footbox
+
+participant "main:Main" as main
+participant "laby: LabyJeu" as l
+participant "moteurJeu:MoteurJeu" as m
+participant "dessin:DessinJeu" as r #FF8888
+participant "labyDessin:LabyDessin" as d
+participant "jeu:Jeu" as game #FF8888
+participant "chargerImage:ChargerImage" as ci
+participant "gc : Canvas" as gc #FF8888
+create game
+main-> game : new
+create r
+main-> r :new
+main -> m : moteurJeu.launch(jeu,dessin)
+activate m
+create gc
+m -> gc : new
+m <-- gc
+loop Timer
+m -> d : dessinerJeu(jeu, gc)
+activate d
+d -> ci  : image = getImageMonstre()
+activate ci
+ci -> d : imageView
+deactivate ci
+loop for (Monstre m : labyJeu.getLaby().monstres)
+d -> gc : DrawImage(image,m*50,m*50,50,50)
+activate gc
+d <-- gc
+deactivate gc
+end group
+m <-- d
+deactivate d
+main <-- m
+deactivate m
+end
+
+deactivate l
+
+@enduml
