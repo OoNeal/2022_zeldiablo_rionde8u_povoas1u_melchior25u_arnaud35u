@@ -5,6 +5,7 @@ participant "main:Main" as main
 participant "laby: LabyJeu" as l
 participant "moteurJeu:MoteurJeu" as m
 participant "dessin:DessinJeu" as r #FF8888
+participant "labyDessin:LabyDessin" as d
 participant "jeu:Jeu" as game #FF8888
 participant "gc : Canvas" as gc #FF8888
 create game
@@ -17,23 +18,18 @@ create gc
 m -> gc : new
 m <-- gc
 loop Timer
-m -> r : dessinerJeu(jeu, gc)
-activate r
+m -> d : dessinerJeu(jeu, gc)
+activate d
 loop for (Monstre m : labyJeu.getLaby().monstres)
-r -> gc :fillOval(50*m.getX(),50*m.getY(),50,50)
+d -> gc :fillOval(50*m.getX(),50*m.getY(),50,50)
 activate gc
-r <-- gc
+d <-- gc
 deactivate gc
-m <-- r
-deactivate r
+end group
+m <-- d
+deactivate d
 main <-- m
 deactivate m
-
-
-
-
-
-
 end
 
 deactivate l
