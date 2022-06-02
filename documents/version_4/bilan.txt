@@ -1,0 +1,29 @@
+5.2 Attaque du joueur
+
+Lorsque le joueur appuie sur une touche donnée (par défaut la touche espace), il
+eectue une attaque contre les monstres qui se trouvent à côté de lui.
+Critères de validation
+• L'attaque a eectivement lieu quand le joueur appuie sur la touche.     		-> OK
+• TOUS les monstres à côté du joueur prennent un point de dégât.			-> OK
+• TOUS les monstres éloignés du joueur ne subissent pas de dégâts.			-> OK
+• S'il n'y a aucun monstre autour du joueur, l'attaque à quand même lieu et empêche	
+le déplacement du joueur, mais les monstres ne prennent pas de dégâts.
+
+
+
+7.2 Armes
+
+Les armes sont des objets que le héros peut prendre. Une arme augmente d'un
+certain nombre les dégâts du héros.
+Critères de validation
+• Une arme est dénie par ses dégâts.										-> OK
+• Lorsque le héros prend une arme, l'arme est ajoutée à son inventaire et disparait				-> OK
+du labyrinthe.
+• Lorsqu'un héros possède une arme et attaque un monstre, son attaque est augmentée des dégâts de l'arme.	-> OK
+• Un héros ne peut utiliser qu'une seule arme à la fois. Lorsqu'un héros possède				-> OK
+plusieurs armes dans son inventaire, il s'équipe automatiquement de l'arme la
+plus forte
+
+
+Nous avons reussi à implémenter tous les fonctionnalites choisis lors de cette itération et tous les critères de validation sont validés.
+Tous les tests fonctionnent (même les anciens).

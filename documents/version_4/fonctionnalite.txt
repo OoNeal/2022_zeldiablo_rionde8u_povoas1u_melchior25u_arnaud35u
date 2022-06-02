@@ -23,3 +23,9 @@ du labyrinthe.
 • Un héros ne peut utiliser qu'une seule arme à la fois. Lorsqu'un héros possède
 plusieurs armes dans son inventaire, il s'équipe automatiquement de l'arme la
 plus forte
+
+
+Repartition des taches :
+
+5.2 Attaque du joueur : Ellian et Antoine
+7.2 Armes : Damien et Florian
