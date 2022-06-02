@@ -42,7 +42,7 @@ public class LabyDessin implements DessinJeu {
 
         int lengthX = labyJeu.getLaby().getLength();
         int lengthY = labyJeu.getLaby().getLengthY();
-        ArrayList<ObjetRamassable> objetsLaby = labyJeu.getLaby().objets;
+        ArrayList<ObjetRamassable> objetsLaby = labyJeu.getLaby().getObjets();
 
         for (int i = 0; i < lengthX; i++) {
             for (int j = 0; j < lengthY; j++) {
@@ -71,14 +71,14 @@ public class LabyDessin implements DessinJeu {
 
 
         // dessin perso
-        Perso p = labyJeu.getLaby().pj;
+        Perso p = labyJeu.getLaby().getPj();
         double px = p.getX();
         double py = p.getY();
         gc.drawImage(images.getImagePerso(), 50*px, 50*py);
 
         // dessin monstre
         gc.setFill(Color.VIOLET);
-        for (Monstre m : labyJeu.getLaby().monstres) {
+        for (Monstre m : labyJeu.getLaby().getMonstres()) {
             double mx = m.getX();
             double my = m.getY();
             gc.drawImage(images.getImageMonstre(), 50*mx, 50*my);
@@ -95,7 +95,7 @@ public class LabyDessin implements DessinJeu {
             gc.fillRect(canvas.getWidth()/2+ 50*i+2 - 150, canvas.getHeight()-48, 46, 46);
         }
 
-        ArrayList<ObjetRamassable> inv = labyJeu.getLaby().pj.getInventaire();
+        ArrayList<ObjetRamassable> inv = labyJeu.getLaby().getPj().getInventaire();
 
         for (int i = 0; i < inv.size(); i++) {
             switch (inv.get(i).getDegats()) {

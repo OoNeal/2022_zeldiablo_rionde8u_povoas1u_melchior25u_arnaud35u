@@ -30,9 +30,6 @@ public class LabyJeu implements Jeu {
     }
 
     @Override
-    /**
-     * methode qui met a jour l'etat du jeu
-     */
     public void update(double secondes, Clavier clavier) {
         // deplace le perso en fonction des touches
         if (clavier.droite) {

@@ -17,13 +17,13 @@ public class InventaireTest {
         Labyrinthe laby = new Labyrinthe("labySimple/labyObjetTest.txt");
 
         // verification
-        assertEquals(laby.objets.size(), 2, "Il devrai y avoir 2 objets sur le labyrinthe");
+        assertEquals(laby.getObjets().size(), 2, "Il devrai y avoir 2 objets sur le labyrinthe");
 
-        assertEquals(3, laby.objets.get(0).getY());
-        assertEquals(4, laby.objets.get(0).getX());
+        assertEquals(3, laby.getObjets().get(0).getY());
+        assertEquals(4, laby.getObjets().get(0).getX());
 
-        assertEquals(4, laby.objets.get(1).getY());
-        assertEquals(5, laby.objets.get(1).getX());
+        assertEquals(4, laby.getObjets().get(1).getY());
+        assertEquals(5, laby.getObjets().get(1).getX());
 
     }
 
@@ -39,8 +39,8 @@ public class InventaireTest {
         laby.ramasserObjet();
 
         // verification
-        assertEquals(2, laby.objets.size(), "Il devrai y avoir 2 objets sur le labyrinthe");
-        assertEquals(0, laby.pj.getInventaire().size(), "L inventaire devrait etre vide");
+        assertEquals(2, laby.getObjets().size(), "Il devrai y avoir 2 objets sur le labyrinthe");
+        assertEquals(0, laby.getPj().getInventaire().size(), "L inventaire devrait etre vide");
     }
 
     /**
@@ -56,8 +56,8 @@ public class InventaireTest {
         laby.ramasserObjet();
 
         // verification
-        assertEquals(1, laby.objets.size(), "Il devrai y avoir 1 objets sur le labyrinthe");
-        assertEquals(1, laby.pj.getInventaire().size(), "Il devrai y avoir 1 objets dans l inventaire");
+        assertEquals(1, laby.getObjets().size(), "Il devrai y avoir 1 objets sur le labyrinthe");
+        assertEquals(1, laby.getPj().getInventaire().size(), "Il devrai y avoir 1 objets dans l inventaire");
 
     }
 
@@ -77,8 +77,8 @@ public class InventaireTest {
         laby.ramasserObjet();
 
         // verification
-        assertEquals(0, laby.objets.size(), "Il devrai y avoir 0 objets sur le labyrinthe");
-        assertEquals(2, laby.pj.getInventaire().size(), "Il devrai y avoir 2 objets dans l inventaire");
+        assertEquals(0, laby.getObjets().size(), "Il devrai y avoir 0 objets sur le labyrinthe");
+        assertEquals(2, laby.getPj().getInventaire().size(), "Il devrai y avoir 2 objets dans l inventaire");
 
 
     }

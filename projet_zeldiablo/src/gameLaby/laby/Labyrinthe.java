@@ -35,22 +35,22 @@ public class Labyrinthe {
     /**
      * attribut du personnage
      */
-    public Perso pj;
+    private Perso pj;
 
     /**
      * attribut du monstre
      */
-    public ArrayList<Monstre> monstres;
+    private ArrayList<Monstre> monstres;
 
     /**
      * attribut representant les murs du labyrinthe
      */
-    public boolean[][] murs;
+    private boolean[][] murs;
 
     /**
      * attribut representant les objets presents sur le labyrinthe
      */
-    public ArrayList<ObjetRamassable> objets;
+    private ArrayList<ObjetRamassable> objets;
 
     /**
      * retourne la case suivante selon une actions
@@ -249,7 +249,7 @@ public class Labyrinthe {
      * @return int
      */
     public int getLengthY() {
-        return murs[0].length;
+        return this.murs[0].length;
     }
 
     /**
@@ -258,7 +258,7 @@ public class Labyrinthe {
      * @return int
      */
     public int getLength() {
-        return murs.length;
+        return this.murs.length;
     }
 
     /**
@@ -271,6 +271,33 @@ public class Labyrinthe {
     public boolean getMur(int x, int y) {
         // utilise le tableau de boolean
         return this.murs[x][y];
+    }
+
+    /**
+     * return le personnage
+     *
+     * @return Perso
+     */
+    public Perso getPj() {
+        return this.pj;
+    }
+
+    /**
+     * return les monstres
+     *
+     * @return ArrayList<Monstre>
+     */
+    public ArrayList<Monstre> getMonstres() {
+        return this.monstres;
+    }
+
+/**
+     * return les objets ramassables
+     *
+     * @return ArrayList<ObjetRamassable>
+     */
+    public ArrayList<ObjetRamassable> getObjets() {
+        return this.objets;
     }
 
     /**
