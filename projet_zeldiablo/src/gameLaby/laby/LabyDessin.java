@@ -84,6 +84,8 @@ public class LabyDessin implements DessinJeu {
             gc.drawImage(images.getImageMonstre(), 50*mx, 50*my);
         }
 
+
+        // dessin des cases de l'inventaire
         for (int i = 0; i < 6; i++) {
             gc.setFill(Color.BLACK);
             gc.fillRect(canvas.getWidth()/2 + 50*i - 150, canvas.getHeight()-50, 50, 50);

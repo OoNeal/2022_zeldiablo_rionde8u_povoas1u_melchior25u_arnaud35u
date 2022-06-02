@@ -48,10 +48,12 @@ public class LabyJeu implements Jeu {
             this.laby.deplacerPerso("Haut");
         }
 
+        // si on ramasse
         if (clavier.ramasser) {
             this.laby.ramasserObjet();
         }
 
+        // si on attaque et qu'on est pret a attaquer
         if (clavier.attaquer && pretAttaquer) {
             this.laby.attaquerMonstre();
         }

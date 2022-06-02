@@ -1,0 +1,25 @@
+11.1 Afichage avec des sprites
+
+La fenêtre n'afiche plus des figures de base (rond, ...) mais des sprites représentant
+les personnages et les objets (http://fr.wikipedia.org/wiki/Sprite_%28jeu_vid%C3%A9o%29).
+
+Critères de validation
+• Les sprites concernent les murs, les monstres et le héros.								-> OK					
+• Ils sont chargés une fois pour toute au lancement de l'application et ils peuvent					-> OK
+être achés dans le JPanel grâce à la méthode drawImage.
+
+
+
+7.4 Afichage de l'inventaire
+
+L'inventaire est afiché dans la fenêtre de jeu.
+
+Critères de validation
+• L'inventaire est représenté par 6 cases carrées en bas de la fenêtre de jeu							-> OK
+• A chaque fois qu'un joueur prend un objet, en plus de disparaitre dans le labyrinthe, celui-ci s'afiche dans l'inventaire	-> OK
+• Les objets sélectionnés (meilleure arme) sont d'une couleur différente.							-> OK
+• Les objets afichés dans l'inventaire ont des formes spéciques 								-> OK
+
+
+Nous avons réussis a implémenter tous ce que nous voulions. Pour cette itération, il n'y a pas de test vu que cette 
+iteration est entierement tournee vers un aspect graphique.
