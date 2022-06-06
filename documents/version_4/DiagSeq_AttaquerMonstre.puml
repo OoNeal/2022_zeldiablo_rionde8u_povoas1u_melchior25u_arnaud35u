@@ -26,6 +26,8 @@ group if (this.pj.monstreEnvironnent(m))
 lab -> i : m.subirDegats(this.pj.getMeilleurDegats())
 activate i #ffc320
 lab <-- i
+else else
+lab -> lab : null
 
 deactivate i
 end group
