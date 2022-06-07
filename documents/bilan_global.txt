@@ -1,0 +1,128 @@
+						
+
+						Fonctionnalités : 
+
+
+
+	Premiere itération :
+
+Des objets (sans utilité pour le moment) sont disposés dans des cases vides du labyrinthe, lorsque le héros appuie sur
+la touche d'utilisation ("E" par défaut), il récupère les objets de la case où il se trouve et les ajoute dans son inventaire.
+
+1. Donner une position initiale aux objets
+- Descriptif :
+  - Les objets doivent être ajoutés sur leurs cases du fichier Labyrinthe.
+- Critères de validation :
+  - L'objet doit avoir une position initiale.
+  - L'objet se trouve sur la case indiquée dans le fichier labyrinthe.
+  - Les objets étant de types Dague, Potion
+  - L'objet ne se trouve pas sur la même case que le personnage.
+
+2. Afficher l'objet
+- Descriptif :
+  - le jeu doit afficher l'objet à sa position.
+- Critères de validation :
+  - le monstre doit être affiché à la bonne position dans le labyrinthe.
+  - le monstre sera représenté sous la forme d'un cercle violet de la taille du personnage.
+
+3. Considération de l'objet par rapport au joueur
+- Descriptif :
+    - Le joueur doit pouvoir récupérer l'objet.
+- Critères de validation
+    - L'inventaire est de taille infinie.
+    - Rien ne doit se passer quand le joueur essaye de ramasser un objet sur une case vide
+    - Lorsqu'un joueur prend un objet, l'objet disparaît du labyrinthe (et n'est plus
+        affiché) mais apparaît dans son inventaire.
+    - A chaque évolution du jeu, le jeu affiche dans la console l'inventaire du héros.
+    - Les objets sont affichés dans le labyrinthe tant qu'ils sont présents (sous la forme
+    d'un cercle noir)
+
+
+
+	Deuxième itération:
+
+5.2 Attaque du joueur
+
+Lorsque le joueur appuie sur une touche donnée (par défaut la touche espace), il
+effectue une attaque contre les monstres qui se trouvent à côté de lui.
+Critères de validation
+• L'attaque a effectivement lieu quand le joueur appuie sur la touche.
+• TOUS les monstres à côté du joueur prennent un point de dégât.
+• TOUS les monstres éloignés du joueur ne subissent pas de dégâts.
+• S'il n'y a aucun monstre autour du joueur, l'attaque à quand même lieu et empêche
+le déplacement du joueur, mais les monstres ne prennent pas de dégâts.
+
+
+
+7.2 Armes
+
+Les armes sont des objets que le héros peut prendre. Une arme augmente d'un
+certain nombre les dégâts du héros.
+Critères de validation
+• Une arme est définie par ses dégâts.
+• Lorsque le héros prend une arme, l'arme est ajoutée à son inventaire et disparait
+du labyrinthe.
+• Lorsqu'un héros possède une arme et attaque un monstre, son attaque est augmentée des dégâts de l'arme.
+• Un héros ne peut utiliser qu'une seule arme à la fois. Lorsqu'un héros possède
+plusieurs armes dans son inventaire, il s'équipe automatiquement de l'arme la
+plus forte
+
+
+
+	Troisième itération:
+
+11.1 Affichage avec des sprites
+
+La fenêtre n'affiche plus des figures de base (rond, ...) mais des sprites représentant
+les personnages et les objets (http://fr.wikipedia.org/wiki/Sprite_%28jeu_vid%C3%A9o%29).
+
+Critères de validation
+• Les sprites concernent les murs, les monstres et le héros.
+• Ils sont chargés une fois pour toute au lancement de l'application et ils peuvent
+être affichés dans le JPanel grâce à la méthode drawImage.
+• Vous pourrez utiliser l'image http://www.qcfdesign.com/?p=354 qui est un ensemble de sprites pour le jeu Desktop Dungeons. Ces sprites sont disposés régulièrement dans l'image et sont donc facile à extraire à partir de l'image.
+• Il est possible de charger une image (de type BufferedImage en mémoire grâce à
+la classe ImageIO et la méthode statique read).
+
+
+7.4 Affichage de l'inventaire
+
+L'inventaire est affiché dans la fenêtre de jeu.
+
+Critères de validation
+• L'inventaire est représenté par 6 cases carrées en bas de la fenêtre de jeu
+• A chaque fois qu'un joueur prend un objet, en plus de disparaitre dans le labyrinthe, celui-ci s'affiche dans l'inventaire
+• Les objets sélectionnés (meilleure arme) sont d'une couleur différente.
+• Les objets affichés dans l'inventaire ont des formes spécifiques 
+
+
+
+
+
+						Répartition du travail
+
+Donner une position initiale aux objets et afficher les objets : Damien et Elian
+Considération de l’objet par rapport au joueur : Antoine et Florian
+
+5.2 Attaque du joueur : Elian et Antoine
+7.2 Armes : Damien et Florian
+
+11.1 Affichage avec des sprites : Elian et Antoine
+7.4 Affichage de l'inventaire : Florian et Damien
+
+
+
+
+
+						Points importants/fiers
+
+Florian : Pour moi, l’aspect le plus important du jeu est la gestion de l’inventaire et plus particulièrement des armes (Utilisation de l’arme avec les meilleurs dégâts, par exemple)
+Antoine : 
+Elian : Un point dont je suis fier est l’attaque du personnage. Plus particulièrement le fait que le personnage n’attaque qu’une seule fois par appuie de la touche espace ainsi qu’il attaque tous les monstres et n’en loupe pas lors de la mort d’un autre.
+
+
+
+
+						Conclusion / Bilan
+
+Le projet été compliqué à prendre à main, et nous avons pris du retard mais nous nous sommes rattrapés et nous sommes content d’avoir réussi tout ce que nous voulions faire dans ce laps de temps.
