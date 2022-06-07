@@ -119,6 +119,7 @@ Considération de l’objet par rapport au joueur : Antoine et Florian
 Florian : Pour moi, l’aspect le plus important du jeu est la gestion de l’inventaire et plus particulièrement des armes (Utilisation de l’arme avec les meilleurs dégâts, par exemple)
 Antoine : 
 Elian : Un point dont je suis fier est l’attaque du personnage. Plus particulièrement le fait que le personnage n’attaque qu’une seule fois par appuie de la touche espace ainsi qu’il attaque tous les monstres et n’en loupe pas lors de la mort d’un autre.
+Damien : Pour moi, le point dont je suis le plus fier, concerne la partie sur les sprites, car pour moi c'est un élément essentiel au jeu et c'est ce qui permet de rendre un jeu beaucoup plus complet, donc le fait d'avoir réussi a intégré cela a notre jeu me rend fier.
 
 
 
