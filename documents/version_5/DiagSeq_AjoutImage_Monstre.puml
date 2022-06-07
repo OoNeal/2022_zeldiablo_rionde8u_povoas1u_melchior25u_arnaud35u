@@ -7,7 +7,7 @@ participant "moteurJeu:MoteurJeu" as m
 participant "dessin:DessinJeu" as r #FF8888
 participant "labyDessin:LabyDessin" as d
 participant "jeu:Jeu" as game #FF8888
-participant "chargerImage:ChargerImage" as ci
+participant "images:ChargerImage" as i #FF8888
 participant "gc : Canvas" as gc #FF8888
 create game
 main-> game : new
@@ -21,16 +21,21 @@ m <-- gc
 loop Timer
 m -> d : dessinerJeu(jeu, gc)
 activate d
-d -> ci  : image = getImageMonstre()
-activate ci
-ci -> d : imageView
-deactivate ci
-loop for (Monstre m : labyJeu.getLaby().monstres)
+group if (image == null)
+create i
+d -> i : new
+deactivate i
+else else
+d -> d : null
+end
+d -> i  : getImageMonstre()
+activate i
+i -> d : image : Image
+deactivate i
 d -> gc : DrawImage(image,m*50,m*50,50,50)
 activate gc
 d <-- gc
 deactivate gc
-end group
 m <-- d
 deactivate d
 main <-- m
